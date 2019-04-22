@@ -25,6 +25,9 @@
 .titleTxt {transform: skewY(15deg);transform-origin: top left}
 .titlePad {padding: 15vh 10vw 10vh 10vw;cursor: pointer;}
 .fbPos {top: 90vh;right: 1vw;position: absolute;font-size:2vmax;line-height: 120%;text-align: right}
+.sectionH {font-family: 'Exo 2', sans-serif;color: #74459D;margin-top:5vmax;font-size:2.5vmax;
+            padding:1vmax 2vmax}
+.topCurve {border-top-left-radius: 1vmax;border-top-right-radius: 1vmax}
 
 @media only screen and (max-width: 600px){
   .titlePad {padding-top:30vh}
@@ -39,10 +42,12 @@
 </style>
 
 <body>
-  <div style="background-color:#D5D5FE">
+
+<!--front page-->
+<div id="frontP" style="background-color:#D5D5FE;max-height: 100vh;overflow: hidden;">
     <div class="title">
       <div class="titleTxt">
-        <div class="w3-container titlePad" style="font-size: 6vmax;line-height: 90%" onclick="showQ(1)"
+        <div class="w3-container titlePad" style="font-size: 6vmax;line-height: 90%" onclick="showQ(0)"
           title="click here to continue">  
             <div class="w3-row">
               <span class="green exo">&nbsp; Basic </span><br>
@@ -68,13 +73,55 @@
         </div>
       </div>
     </div>
+</div>
+
+<!--questions-->
+<div id="q" style="background: linear-gradient(to top left,#fbfdd1, #ffffcb);display: none">
+  
+  <!--number-->
+  <div id="qNo" class="w3-row grey cursive w3-center" style="font-size:4vmax;padding: 1.5vmax">
+      Question 
   </div>
 
+  <!--clinical detail-->
+  <div id="detail" class="w3-row sectionH">
+        &nbsp;&#9658;Clinical Detail</div>
+  
+  <!--Qimage-->
+  <div id="qImage" class="w3-row sectionH">
+      &nbsp;&#9658;Figure
+  </div>
+
+  <!--mainQ-->
+  <div id="mainQ" class="w3-row sectionH">
+      &nbsp;&#9658;The question is...
+  </div>
+
+  <!--choices-->
+  <div id="choices" class="w3-row sectionH">
+      &nbsp;&#9658;Answer Options
+  </div>
+
+  <!--answer-->
+  <div style="padding:2vmax">
+    <div id="answer" class="w3-container exo topCurve" style="background-color:#58958E;color:white;font-size:2.5vmax">
+        Answer:
+    </div><br>
+    <div id="exp" class="w3-container purple san2 topCurve" style="font-size:2vmax;color:#555">
+      explaination
+    </div>
+  </div>
+</div>
 
 
 </body>
 
 <script>
+
+function showQ(n){
+  document.getElementById('q').style.display="block"
+  document.getElementById('frontP').style.display="none"
+}
 
 </script>	
 
