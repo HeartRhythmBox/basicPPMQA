@@ -26,7 +26,7 @@
 .titlePad {padding: 15vh 10vw 10vh 10vw;cursor: pointer;}
 .fbPos {top: 90vh;right: 1vw;position: absolute;font-size:2vmax;line-height: 120%;text-align: right}
 .sectionH {font-family: 'Exo 2', sans-serif;color: #74459D;margin-top:5vmax;font-size:2.5vmax;
-            padding:1vmax 2vmax}
+            padding:1vmax 2vmax;letter-spacing: -0.1vmin}
 .topCurve {border-top-left-radius: 1vmax;border-top-right-radius: 1vmax}
 
 @media only screen and (max-width: 600px){
@@ -38,6 +38,7 @@
   .fbPos {top:95vh;right:2vw}
 }
 
+.navBtn {box-shadow: rgba(85, 85, 85,0.4) 2px -2px 4px;}
 
 </style>
 
@@ -47,7 +48,7 @@
 <div id="frontP" style="background-color:#D5D5FE;max-height: 100vh;overflow: hidden;">
     <div class="title">
       <div class="titleTxt">
-        <div class="w3-container titlePad" style="font-size: 6vmax;line-height: 90%" onclick="showQ(0)"
+        <div class="w3-container titlePad" style="font-size: 6vmax;line-height: 90%" onclick="showQPage(0)"
           title="click here to continue">  
             <div class="w3-row">
               <span class="green exo">&nbsp; Basic </span><br>
@@ -85,21 +86,21 @@
 
   <!--clinical detail-->
   <div id="detail" class="w3-row sectionH">
-        &nbsp;&#9658;Clinical Detail</div>
+        &nbsp;&#9656;Clinical Detail</div>
   
   <!--Qimage-->
   <div id="qImage" class="w3-row sectionH">
-      &nbsp;&#9658;Figure
+      &nbsp;&#9656;Figure
   </div>
 
   <!--mainQ-->
   <div id="mainQ" class="w3-row sectionH">
-      &nbsp;&#9658;The question is...
+      &nbsp;&#9656;The question is...
   </div>
 
   <!--choices-->
   <div id="choices" class="w3-row sectionH">
-      &nbsp;&#9658;Answer Options
+      &nbsp;&#9656;Answer Options
   </div>
 
   <!--answer-->
@@ -108,17 +109,47 @@
         Answer:
     </div><br>
     <div id="exp" class="w3-container purple san2 topCurve" style="font-size:2vmax;color:#555">
-      explaination
+      Explaination
+      <div id="answerImg"></div>
     </div>
   </div>
+
+  <!--nav bar-->
+  <div class="w3-bottom w3-center w3-mobile">
+    <div class="w3-bar exo w3-mobile w3-large" style="opacity: 0.9;padding: 1vmax">
+      <div class="w3-bar-item w3-button w3-round grey w3-padding-small navBtn">Home</div>
+      <div class="w3-bar-item w3-button w3-round grey w3-padding-small navBtn">&nbsp;&LeftAngleBracket;&nbsp;</div>
+      <div class="w3-bar-item w3-button w3-round grey w3-padding-small navBtn">&nbsp;Q 1/10&nbsp;</div>
+      <div class="w3-bar-item w3-button w3-round grey w3-padding-small navBtn">&nbsp;&RightAngleBracket;&nbsp;</div>
+    </div>
+  </div>
+
 </div>
+
 
 
 </body>
 
 <script>
 
-function showQ(n){
+window.onload = function() {
+  enableNavBtn()
+}
+
+function enableNavBtn(){
+  var btn = document.getElementsByClassName('navBtn');
+  btn[0].onclick = function(){frontPage()};
+  //btn[1].onclick = function(){qNav(-1)};
+  //btn[3].onclick = function(){qNav(1)};
+}
+
+
+function frontPage(){
+  document.getElementById('q').style.display="none"
+  document.getElementById('frontP').style.display="block"
+}
+
+function showQPage(n){
   document.getElementById('q').style.display="block"
   document.getElementById('frontP').style.display="none"
 }
