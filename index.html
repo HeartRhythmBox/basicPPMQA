@@ -160,7 +160,7 @@ function loadXMLDoc() {
   xml.open ('GET','QsAs.xml',false)
   xml.send();
   var xmlData= xml.responseText;
-  document.getElementById('demo').innerHTML = 'demo'
+  document.getElementById('demo').innerHTML = xmlData
   return xmlData
 }
 
