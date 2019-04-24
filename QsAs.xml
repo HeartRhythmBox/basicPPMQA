@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<question>
+    <clinical>
+        A 65-year-old man presents to the emergency department after a syncopal event. 
+        He was eating dinner and was witnessed to abruptly fall back in his chair for 
+        several seconds before regaining consciousness. His past history includes atrial 
+        fibrillation and hypertension. He tells you that 15 years ago, he received a pacemaker 
+        because “his heart stopped.” A generator change was performed 5 years ago. 
+        He has regular pacemaker checks; the last one was 3 months ago, and he was told 
+        everything was fine. His medications include warfarin, metoprolol, and lisinopril.
+
+        On examination, his blood pressure is 140/80 mm Hg with a heart rate of 75 bpm. 
+        The physical examination is unremarkable. A pacemaker programmer is available to 
+        you if needed. As you speak to him, his eyes roll back and a telemetry strip is recorded (as shown).
+        </clinical>
+    <qImage>
+        "/media/noncapture.png"
+        </qImage>
+    <mainQ>
+        Which of the following should be your next step in management of this patient?
+        </mainQ>
+    <choices>
+        <a>Increase the ventricular sensitivity of the pacemaker.</a>
+        <b>Place a magnet over the device.</b>
+        <c>Initiate external pacing with cutaneous patches.</c>
+        <d>Place a temporary pacemaker.</d>
+        <e>Increase the ventricular output of the pacemaker.</e>
+        </choices>
+    <answer>E
+        </answer>
+    <exp>Tracing = loss of ventricular capture in an underlying rhythm of complete heart block. 
+        Pacing lead is 15 years old so lead problem is highly possible. 
+        Interrogation will reveal and temporary fix the cause if it is readily available as in this case. 
+        There is no issue of inappropriate sensing so magnet or adjusting sensitivity would not help.
+        </exp>
+    <aImage>
+        </aImage>
+</question>
+</xml>

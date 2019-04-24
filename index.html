@@ -74,11 +74,11 @@
         </div>
       </div>
     </div>
-</div>
+  </div>
 
 <!--questions-->
 <div id="q" style="background: linear-gradient(to top left,#fbfdd1, #ffffcb);display: none">
-  
+  <div id='demo'></div>
   <!--number-->
   <div id="qNo" class="w3-row grey cursive w3-center" style="font-size:4vmax;padding: 1.5vmax">
       Question 
@@ -150,7 +150,18 @@
 <script>
 
 window.onload = function() {
-  enableNavBtn()
+  enableNavBtn();
+  var xmlData = loadXMLDoc()
+}
+
+//get xml file
+function loadXMLDoc() {
+  var xml = new XMLHttpRequest();
+  xml.open ('GET','QsAs.xml',false)
+  xml.send();
+  var xmlData= xml.responseText;
+  document.getElementById('demo').innerHTML = 'demo'
+  return xmlData
 }
 
 function enableNavBtn(){
