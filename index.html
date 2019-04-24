@@ -78,7 +78,7 @@
 
 <!--questions-->
 <div id="q" style="background: linear-gradient(to top left,#fbfdd1, #ffffcb);display: none">
-  <div id='demo'></div>
+  
   <!--number-->
   <div id="qNo" class="w3-row grey cursive w3-center" style="font-size:4vmax;padding: 1.5vmax">
       Question 
@@ -149,9 +149,10 @@
 
 <script>
 
+var xmlData;
 window.onload = function() {
   enableNavBtn();
-  var xmlData = loadXMLDoc()
+  loadXMLDoc()
 }
 
 //get xml file
@@ -159,8 +160,7 @@ function loadXMLDoc() {
   var xml = new XMLHttpRequest();
   xml.open ('GET','QsAs.xml',false)
   xml.send();
-  var xmlData= xml.responseText;
-  document.getElementById('demo').innerHTML = xmlData
+  xmlData= xml.responseXML;
   return xmlData
 }
 
@@ -186,10 +186,28 @@ function showQPage(n){
   //check page
   let page = n+1;
 
-  //show current Q in qNav
+  //show current Q in qNav and qHeader
   document.getElementById('currentQ').innerHTML = '\xa0' +'Q'+ page +'\xa0' ;
-}
+  document.getElementById('qNo').innerHTML = "Question" + '\xa0' + page + '\xa0'
 
+  //create tags from XML
+  var clinical = xmlData.getElementsByTagName("clinical")
+  var qImage = xmlData.getElementsByTagName("qImage")
+  var mainQ = xmlData.getElementsByTagName("mainQ")
+  var choices = xmlData.getElementsByTagName("choices")
+  var answer = xmlData.getElementsByTagName("answer")
+  var exp = xmlData.getElementsByTagName("exp")
+  var aImage = xmlData.getElementsByTagName("aImage")
+
+  //show data
+  document.getElementById('detail').innerHTML = clinical[n].childNodes[0].nodeValue;
+  document.getElementById('qImage').innerHTML = qImage[n].childNodes[0].nodeValue;
+  document.getElementById('mainQ').innerHTML = mainQ[n].childNodes[0].nodeValue;
+  document.getElementById('choices').innerHTML = choices[n].childNodes[0].nodeValue;
+  document.getElementById('answer').innerHTML = answer[n].childNodes[0].nodeValue;
+  document.getElementById('exp').innerHTML = exp[n].childNodes[0].nodeValue;
+  document.getElementById('answerImg').innerHTML = aImage[n].childNodes[0].nodeValue;
+}
 </script>	
 
 </body>
