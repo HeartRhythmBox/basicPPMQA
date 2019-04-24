@@ -29,7 +29,6 @@
             padding:1vmax 2vmax;letter-spacing: -0.1vmin;cursor: pointer;}
 .sectionD {font-family: 'Exo 2', sans-serif;font-size:2vmax;padding:1vmax 2.5vmax;letter-spacing: -0.1vmin;
 line-height: 80%;background-color: rgba(256, 256, 256,0.8);display: none}
-.arrowD {display: none}
 .topCurve {border-top-left-radius: 1vmax;border-top-right-radius: 1vmax}
 
 @media only screen and (max-width: 600px){
@@ -86,11 +85,10 @@ line-height: 80%;background-color: rgba(256, 256, 256,0.8);display: none}
   <div id="qNo" class="w3-row grey cursive w3-center" style="font-size:4vmax;padding: 1.5vmax">
       Question 
   </div>
-  <div id="demo"></div>
+
   <!--clinical detail-->
   <div id="clinicalH" class="w3-row sectionH">
-        <span class="arrowR">&nbsp;&#9656;</span><span class="arrowD">&nbsp;&#9662;</span>
-        Clinical Detail
+        &nbsp;&#9656;Clinical Detail
       <div id="clinical" class="w3-container sectionD">
           Detail
       </div>
@@ -160,8 +158,7 @@ line-height: 80%;background-color: rgba(256, 256, 256,0.8);display: none}
 var xmlData;
 window.onload = function() {
   enableNavBtn();
-  sectionClickable()
-  loadXMLDoc();
+  loadXMLDoc()
 }
 
 //get xml file
@@ -178,27 +175,6 @@ function enableNavBtn(){
   btn[0].onclick = function(){frontPage()};
   //btn[1].onclick = function(){qNav(-1)};
   //btn[3].onclick = function(){qNav(1)};
-}
-
-var sectionStatus = [0,0,0,0,0,0]
-function sectionClickable(){
-  var sec = document.getElementsByClassName('sectionH')
-  sec[0].onclick = function(){toggleSectionD(0)}
-
-  function toggleSectionD(n){
-    var D = document.getElementsByClassName('sectionD')
-    var arrowR = document.getElementsByClassName('arrowR')
-    var arrowD = document.getElementsByClassName('arrowD')
-    if (sectionStatus[n]==0){
-      D[n].style.display = "block";
-      arrowR[n].style.display="none"; arrowD[n].style.display = "inline" 
-      sectionStatus[n]=1;
-    } else {
-      D[n].style.display = "none";
-      arrowD[n].style.display="none"; arrowR[n].style.display = "inline" 
-      sectionStatus[n]=0
-      }
-  }
 }
 
 
