@@ -84,7 +84,7 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);display: none}
 <div id="q" style="background: linear-gradient(to top left,#fbfdd1, #ffffcb);display: none">
   
   <!--number-->
-  <div id="qNo" class="w3-row grey cursive w3-center" style="font-size:4vmax;padding: 1.5vmax">
+  <div id="qNo" class="w3-row grey cursive w3-center" style="font-size:4vmax;padding: 0.5vmax">
       Question 
   </div>
   <div id="demo"></div>
@@ -162,7 +162,7 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);display: none}
     <div class="w3-bar exo w3-mobile w3-large" style="opacity: 0.9;padding: 1vmax">
       <div class="w3-bar-item w3-button w3-round grey w3-padding-small navBtn">Home</div>
       <div class="w3-bar-item w3-button w3-round grey w3-padding-small navBtn">&nbsp;&LeftAngleBracket;&nbsp;</div>
-      <div id="currentQ" class="w3-bar-item w3-button w3-round grey w3-padding-small navBtn">&nbsp;Q 1/10&nbsp;</div>
+      <div id="currentQ" class="w3-bar-item w3-button w3-round grey w3-padding-small navBtn"></div>
       <div class="w3-bar-item w3-button w3-round grey w3-padding-small navBtn">&nbsp;&RightAngleBracket;&nbsp;</div>
     </div>
   </div>
@@ -261,10 +261,11 @@ function showQPage(n){
 
 
   //check page
-  let page = n+1;
+  var page = n+1;
+  var totalP = xmlData.getElementsByTagName('question').length
 
   //show current Q in qNav and qHeader
-  document.getElementById('currentQ').innerHTML = '\xa0' +'Q'+ page +'\xa0' ;
+  document.getElementById('currentQ').innerHTML = '\xa0' +'Q'+ page +'\xa0' + '/' + totalP ;
   document.getElementById('qNo').innerHTML = "Question" + '\xa0' + page + '\xa0'
   
   //initially show some sections
