@@ -41,7 +41,6 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);display: none}
   .fbPos {top:95vh;right:2vw}
 }
 
-#clinical {white-space:pre-line}
 .navBtn {box-shadow: rgba(85, 85, 85,0.4) 2px -2px 4px;}
 
 </style>
@@ -111,7 +110,7 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);display: none}
       <span class="arrowR">&nbsp;&#9656;</span><span class="arrowD">&nbsp;&#9662;</span>
       The question is...
       <div id="mainQ" class="w3-container sectionD">
-          </div>
+          ???</div>
   </div>
 
   <!--choices-->
@@ -127,18 +126,16 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);display: none}
       <span class="arrowR">&nbsp;&#9656;</span><span class="arrowD">&nbsp;&#9662;</span>
       The answer is...
       <div class="w3-container sectionD">
-        <div id="answer" class="w3-container w3-padding exo topCurve" 
-        style="background-color:#58958E;color:white;font-size:2.5vmax;">
+      <div id="answer" class="w3-container w3-padding exo topCurve" 
+      style="background-color:#58958E;color:white;font-size:2.5vmax;">
         Answer:
-        </div><br>
-        <div id="exp" class="w3-container w3-padding purple san2 topCurve" style="font-size:2vmax;color:#555">
-        Explaination
-        </div>
-        <div>  
-          <img id="aImage" style="width:100%"></div>
+      </div><br>
+      <div id="exp" class="w3-container w3-padding purple san2 topCurve" style="font-size:2vmax;color:#555">
+      Explaination
+        <img id="aImage">
       </div>
+    </div>
   </div>
-  
 
   <div class="w3-row exo" style="font-size:1vmax;color:#878787;background-color:white;
   padding: 1vmax 1vmax 5vmax 1vmax;text-align: right">
@@ -244,10 +241,7 @@ function frontPage(){
 }
 
 function showQPage(n){
-  //scroll to top
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-
+  
   //hide front page
   document.getElementById('q').style.display="block"
   document.getElementById('frontP').style.display="none"
@@ -293,8 +287,6 @@ function showQPage(n){
       {document.getElementById('qImageH').style.display = "none"}
     else {document.getElementById('qImage').src = qImage[n].childNodes[0].nodeValue;
     }
-
-  //
   document.getElementById('mainQ').innerHTML = mainQ[n].childNodes[0].nodeValue;
   
   document.getElementById('choices').innerHTML = (
@@ -305,7 +297,8 @@ function showQPage(n){
     "E) " + e[n].childNodes[0].nodeValue)
   document.getElementById('answer').innerHTML = answer[n].childNodes[0].nodeValue;
   document.getElementById('exp').innerHTML = exp[n].childNodes[0].nodeValue;
-  document.getElementById('aImage').src = aImage[n].childNodes[0].nodeValue;;
+  document.getElementById('answerImg').innerHTML = aImage[n].childNodes[0].nodeValue;
+  document.getElementById('aImage').src = aImage[n].childNodes[0].nodeValue;
 
 }
 </script>	

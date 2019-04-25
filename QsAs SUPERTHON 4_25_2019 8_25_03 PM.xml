@@ -6,10 +6,17 @@
 <!--noncapture-->
 <question>
     <clinical>
-        A 65-year-old man presents to the emergency department after a syncopal event. He was eating dinner and was witnessed to abruptly fall back in his chair for several seconds before regaining consciousness. His past history includes atrial fibrillation and hypertension. He tells you that 15 years ago, he received a pacemaker 
-        because “his heart stopped.” A generator change was performed 5 years ago. He has regular pacemaker checks; the last one was 3 months ago, and he was told everything was fine. His medications include warfarin, metoprolol, and lisinopril.
-        
-        On examination, his blood pressure is 140/80 mm Hg with a heart rate of 75 bpm. The physical examination is unremarkable. A pacemaker programmer is available to you if needed. As you speak to him, his eyes roll back and a telemetry strip is recorded (as shown).
+        A 65-year-old man presents to the emergency department after a syncopal event. 
+        He was eating dinner and was witnessed to abruptly fall back in his chair for 
+        several seconds before regaining consciousness. His past history includes atrial 
+        fibrillation and hypertension. He tells you that 15 years ago, he received a pacemaker 
+        because “his heart stopped.” A generator change was performed 5 years ago. 
+        He has regular pacemaker checks; the last one was 3 months ago, and he was told 
+        everything was fine. His medications include warfarin, metoprolol, and lisinopril.
+        \n
+        On examination, his blood pressure is 140/80 mm Hg with a heart rate of 75 bpm. 
+        The physical examination is unremarkable. A pacemaker programmer is available to 
+        you if needed. As you speak to him, his eyes roll back and a telemetry strip is recorded (as shown).
     </clinical>
            
     <qImage>media/noncapture.png</qImage>
@@ -39,6 +46,7 @@
     <clinical>
         A 66 year old woman with a nonischemic cardiomyopathy, LBBB received a CRT-D device 2 months ago. 
         The device is programmed DDDR, 60-125 bpm. She is now hospitalized with pneumonia. 
+        <part2></part2>
     </clinical>
     <qImage>media/crtInST.png</qImage>
     <mainQ>
