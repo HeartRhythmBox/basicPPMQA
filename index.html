@@ -25,10 +25,10 @@
 .titleTxt {transform: skewY(15deg);transform-origin: top left}
 .titlePad {padding: 15vh 10vw 10vh 10vw;cursor: pointer;}
 .fbPos {top: 90vh;right: 1vw;position: absolute;font-size:2vmax;line-height: 120%;text-align: right}
-.sectionH {font-family: 'Exo 2', sans-serif;color: #74459D;margin-top:5vmax;font-size:2.5vmax;
-            padding:1vmax 2vmax;letter-spacing: -0.1vmin;cursor: pointer;}
-.sectionD {font-family: 'Exo 2', sans-serif;font-size:2vmax;padding:1vmax 2.5vmax;letter-spacing: -0.1vmin;
-line-height: 80%;background-color: rgba(256, 256, 256,0.8);display: none}
+.sectionH {font-family: 'Exo 2', sans-serif;color: #74459D;margin-top:1vmax;font-size:2.5vmax;
+            padding:0.5vmax 2vmax;letter-spacing: -0.1vmin;cursor: pointer;}
+.sectionD {font-family: 'Average Sans', sans-serif;font-size:2vmax;padding:1vmax 2.5vmax;letter-spacing: -0.1vmin;
+line-height: 130%;background-color: rgba(256, 256, 256,0.8);display: none}
 .arrowD {display: none}
 .topCurve {border-top-left-radius: 1vmax;border-top-right-radius: 1vmax}
 
@@ -86,7 +86,7 @@ line-height: 80%;background-color: rgba(256, 256, 256,0.8);display: none}
   <div id="qNo" class="w3-row grey cursive w3-center" style="font-size:4vmax;padding: 1.5vmax">
       Question 
   </div>
-  <div id="demo"></div>
+  <div id="demo">xxx</div>
   <!--clinical detail-->
   <div id="clinicalH" class="w3-row sectionH">
         <span class="arrowR">&nbsp;&#9656;</span><span class="arrowD">&nbsp;&#9662;</span>
@@ -97,28 +97,43 @@ line-height: 80%;background-color: rgba(256, 256, 256,0.8);display: none}
   </div>
   
   <!--Qimage-->
-  <div id="qImage" class="w3-row sectionH">
-      &nbsp;&#9656;Figure
+  <div id="qImageH" class="w3-row sectionH">
+      <span class="arrowR">&nbsp;&#9656;</span><span class="arrowD">&nbsp;&#9662;</span>
+      Figure
+      <div class="w3-container sectionD">
+        <img id="qImage" style="width:100%;padding: 0.5vmax">
+        </div>
   </div>
 
   <!--mainQ-->
-  <div id="mainQ" class="w3-row sectionH">
-      &nbsp;&#9656;The question is...
+  <div id="mainQH" class="w3-row sectionH">
+      <span class="arrowR">&nbsp;&#9656;</span><span class="arrowD">&nbsp;&#9662;</span>
+      The question is...
+      <div id="mainQ" class="w3-container sectionD">
+          ???</div>
   </div>
 
   <!--choices-->
-  <div id="choices" class="w3-row sectionH">
-      &nbsp;&#9656;Answer Options
+  <div id="choicesH" class="w3-row sectionH">
+      <span class="arrowR">&nbsp;&#9656;</span><span class="arrowD">&nbsp;&#9662;</span>
+      Answer Options
+      <div id="choices" class="w3-container sectionD">
+        choices</div>
   </div>
 
   <!--answer-->
-  <div style="padding:2vmax">
-    <div id="answer" class="w3-container exo topCurve" style="background-color:#58958E;color:white;font-size:2.5vmax">
+  <div style="padding:2vmax" class="w3-row sectionH">
+      <span class="arrowR">&nbsp;&#9656;</span><span class="arrowD">&nbsp;&#9662;</span>
+      The answer is...
+      <div class="w3-container sectionD">
+      <div id="answer" class="w3-container w3-padding exo topCurve" 
+      style="background-color:#58958E;color:white;font-size:2.5vmax;">
         Answer:
-    </div><br>
-    <div id="exp" class="w3-container purple san2 topCurve" style="font-size:2vmax;color:#555">
+      </div><br>
+      <div id="exp" class="w3-container w3-padding purple san2 topCurve" style="font-size:2vmax;color:#555">
       Explaination
-      <div id="answerImg"></div>
+        <img id="aImage">
+      </div>
     </div>
   </div>
 
@@ -157,7 +172,7 @@ line-height: 80%;background-color: rgba(256, 256, 256,0.8);display: none}
 
 <script>
 
-var xmlData;
+var xmlData;var qNo=0;
 window.onload = function() {
   enableNavBtn();
   sectionClickable()
@@ -170,22 +185,40 @@ function loadXMLDoc() {
   xml.open ('GET','QsAs.xml',false)
   xml.send();
   xmlData= xml.responseXML;
-  return xmlData
 }
 
 function enableNavBtn(){
   var btn = document.getElementsByClassName('navBtn');
   btn[0].onclick = function(){frontPage()};
-  //btn[1].onclick = function(){qNav(-1)};
-  //btn[3].onclick = function(){qNav(1)};
+  btn[1].onclick = function(){qNav(-1)};
+  btn[3].onclick = function(){qNav(1)};
 }
 
-var sectionStatus = [0,0,0,0,0,0]
+function qNav(x){
+  //get total questions
+  var qTotal = xmlData.getElementsByTagName('question').length
+  var nextQ = qNo+x;
+  
+  if (nextQ<0){
+    nextQ=qTotal-1
+  } else if(nextQ==qTotal){
+    nextQ=0;
+  }
+  qNo = nextQ
+  showQPage(nextQ)
+}
+
+var sectionStatus = [0,0,0,0,0]
 function sectionClickable(){
   var sec = document.getElementsByClassName('sectionH')
   sec[0].onclick = function(){toggleSectionD(0)}
+  sec[1].onclick = function(){toggleSectionD(1)}
+  sec[2].onclick = function(){toggleSectionD(2)}
+  sec[3].onclick = function(){toggleSectionD(3)}
+  sec[4].onclick = function(){toggleSectionD(4)}
+}  
 
-  function toggleSectionD(n){
+function toggleSectionD(n){
     var D = document.getElementsByClassName('sectionD')
     var arrowR = document.getElementsByClassName('arrowR')
     var arrowD = document.getElementsByClassName('arrowD')
@@ -198,8 +231,8 @@ function sectionClickable(){
       arrowD[n].style.display="none"; arrowR[n].style.display = "inline" 
       sectionStatus[n]=0
       }
-  }
 }
+
 
 
 function frontPage(){
@@ -208,10 +241,13 @@ function frontPage(){
 }
 
 function showQPage(n){
-
+  
   //hide front page
   document.getElementById('q').style.display="block"
   document.getElementById('frontP').style.display="none"
+
+  //reset section status
+  sectionStatus = [0,0,0,0,0]
 
   //check page
   let page = n+1;
@@ -219,24 +255,46 @@ function showQPage(n){
   //show current Q in qNav and qHeader
   document.getElementById('currentQ').innerHTML = '\xa0' +'Q'+ page +'\xa0' ;
   document.getElementById('qNo').innerHTML = "Question" + '\xa0' + page + '\xa0'
+  
+  //initially show some sections
+  toggleSectionD(0);toggleSectionD(1);toggleSectionD(2)
 
   //create tags from XML
   var clinical = xmlData.getElementsByTagName("clinical")
+  var part2 = xmlData.getElementsByTagName("part2")
   var qImage = xmlData.getElementsByTagName("qImage")
   var mainQ = xmlData.getElementsByTagName("mainQ")
   var choices = xmlData.getElementsByTagName("choices")
+  var a = xmlData.getElementsByTagName("a");var b = xmlData.getElementsByTagName("b");
+  var c = xmlData.getElementsByTagName("c");var d = xmlData.getElementsByTagName("d");
+  var e = xmlData.getElementsByTagName("e");
   var answer = xmlData.getElementsByTagName("answer")
   var exp = xmlData.getElementsByTagName("exp")
   var aImage = xmlData.getElementsByTagName("aImage")
 
+  document.getElementById('demo').innerHTML = "n" + n +clinical[n].childNodes[0].nodeValue
   //show data
-  document.getElementById('detail').innerHTML = clinical[n].childNodes[0].nodeValue;
-  document.getElementById('qImage').innerHTML = qImage[n].childNodes[0].nodeValue;
+  document.getElementById('clinical').innerHTML = clinical[n].childNodes[0].nodeValue + "<br/>" 
+  + part2[n].childNodes[0].nodeValue+ "n" + n
+  
+  //check if there is an image
+    if (qImage[n].childNodes[0].nodeValue=="NA")
+      {document.getElementById('qImageH').style.display = "none"}
+    else {document.getElementById('qImage').src = qImage[n].childNodes[0].nodeValue;
+    }
   document.getElementById('mainQ').innerHTML = mainQ[n].childNodes[0].nodeValue;
-  document.getElementById('choices').innerHTML = choices[n].childNodes[0].nodeValue;
+  
+  document.getElementById('choices').innerHTML = (
+    "A) " + a[n].childNodes[0].nodeValue + "<br/>"+
+    "B) " + b[n].childNodes[0].nodeValue + "<br/>"+
+    "C) " + c[n].childNodes[0].nodeValue + "<br/>"+
+    "D) " + d[n].childNodes[0].nodeValue + "<br/>"+
+    "E) " + e[n].childNodes[0].nodeValue)
   document.getElementById('answer').innerHTML = answer[n].childNodes[0].nodeValue;
   document.getElementById('exp').innerHTML = exp[n].childNodes[0].nodeValue;
   document.getElementById('answerImg').innerHTML = aImage[n].childNodes[0].nodeValue;
+  document.getElementById('aImage').src = aImage[n].childNodes[0].nodeValue;
+
 }
 </script>	
 

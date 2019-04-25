@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <qXML>
+
+
+<!--noncapture-->
 <question>
     <clinical>
         A 65-year-old man presents to the emergency department after a syncopal event. 
@@ -10,14 +13,13 @@
         because “his heart stopped.” A generator change was performed 5 years ago. 
         He has regular pacemaker checks; the last one was 3 months ago, and he was told 
         everything was fine. His medications include warfarin, metoprolol, and lisinopril.
-
+        <part2>
         On examination, his blood pressure is 140/80 mm Hg with a heart rate of 75 bpm. 
         The physical examination is unremarkable. A pacemaker programmer is available to 
         you if needed. As you speak to him, his eyes roll back and a telemetry strip is recorded (as shown).
+        </part2>
         </clinical>
-    <qImage>
-        "/media/noncapture.png"
-        </qImage>
+    <qImage>media/noncapture.png</qImage>
     <mainQ>
         Which of the following should be your next step in management of this patient?
         </mainQ>
@@ -38,4 +40,33 @@
     <aImage>
         </aImage>
 </question>
+
+<!--CRT non pacing during Sinus Tachy-->
+<question>
+    <clinical>
+        A 66 year old woman with a nonischemic cardiomyopathy, LBBB received a CRT-D device 2 months ago. 
+        The device is programmed DDDR, 60-125 bpm. She is now hospitalized with pneumonia. 
+        <part2></part2>
+    </clinical>
+    <qImage>media/crtInST.png</qImage>
+    <mainQ>
+        The most likely explanation for the above tracing is:
+        </mainQ>
+    <choices>
+        <a>Loss of RV capture.</a>
+        <b>Sinus rate above upper limit.</b>
+        <c>Loss of LV capture.</c>
+        <d>Loss of both RV and LV capture.</d>
+        <e>Pacemaker mediated tachycardia.</e>
+    </choices>
+    <answer>B</answer>
+    <exp>
+    The initial part of the ECG shows sinus tachycardia with BiV pacing. 
+    When the sinus rate is above 125bpm (=upper rate limit), the device fails to track. 
+    The rhythm then is sinus tachycardia with LBBB. 
+        </exp>
+    <aImage>media/bivVector.png
+        </aImage>
+</question>
+
 </qXML>
