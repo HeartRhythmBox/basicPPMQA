@@ -136,6 +136,9 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);display: none}
         </div>
         <div>  
           <img id="aImage" style="width:100%"></div>
+        <div>
+          <a href="" id='ref' target="_blank"></a>
+        </div>
       </div>
   </div>
   
@@ -284,6 +287,7 @@ function showQPage(n){
   var answer = xmlData.getElementsByTagName("answer")
   var exp = xmlData.getElementsByTagName("exp")
   var aImage = xmlData.getElementsByTagName("aImage")
+  var ref = xmlData.getElementsByTagName("ref")
 
   //show clinical detail
   document.getElementById('clinical').innerHTML = clinical[n].childNodes[0].nodeValue  
@@ -306,8 +310,9 @@ function showQPage(n){
     "E) " + e[n].childNodes[0].nodeValue)
   document.getElementById('answer').innerHTML = answer[n].childNodes[0].nodeValue;
   document.getElementById('exp').innerHTML = exp[n].childNodes[0].nodeValue;
-  document.getElementById('aImage').src = aImage[n].childNodes[0].nodeValue;;
-
+  document.getElementById('aImage').src = aImage[n].childNodes[0].nodeValue;
+  document.getElementById('ref').innerHTML = "Ref: " + ref[n].childNodes[0].nodeValue; 
+  document.getElementById('ref').href = ref[n].childNodes[0].nodeValue;  
 }
 </script>	
 
