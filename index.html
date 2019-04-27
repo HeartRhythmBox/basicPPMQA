@@ -26,10 +26,11 @@
 .titlePad {padding: 15vh 10vw 10vh 10vw;cursor: pointer;}
 .fbPos {top: 90vh;right: 1vw;position: absolute;font-size:2vmax;line-height: 120%;text-align: right}
 .sectionH {font-family: 'Exo 2', sans-serif;color: #74459D;margin-top:1vmax;font-size:2.5vmax;
-            padding:0.5vmax 2vmax;letter-spacing: -0.1vmin;cursor: pointer;}
+            padding:0.5vmax 2vmax;letter-spacing: -0.1vmin;}
 .sectionD {font-family: 'Average Sans', sans-serif;font-size:2vmax;padding:1vmax 2.5vmax;letter-spacing: -0.1vmin;
 line-height: 130%;background-color: rgba(256, 256, 256,0.8);display: none}
-.arrowD {display: none}
+.arrowD {display: none;cursor: pointer;}
+.arrowR {cursor: pointer;}
 .topCurve {border-top-left-radius: 1vmax;border-top-right-radius: 1vmax}
 
 @media only screen and (max-width: 600px){
@@ -135,9 +136,9 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);display: none}
         Explaination
         </div>
         <div>  
-          <img id="aImage" style="width:100%"></div>
+          <img id="aImage" style="max-width:100%;max-height:800px;padding:1vmax"></div>
         <div>
-          <a href="" id='ref' target="_blank"></a>
+          <a href="" id='ref' target="_blank" style="font-size:1.5vmax;color:#878787;overflow: hidden"></a>
         </div>
       </div>
   </div>
@@ -216,12 +217,18 @@ function qNav(x){
 
 var sectionStatus = [0,0,0,0,0]
 function sectionClickable(){
-  var sec = document.getElementsByClassName('sectionH')
-  sec[0].onclick = function(){toggleSectionD(0)}
-  sec[1].onclick = function(){toggleSectionD(1)}
-  sec[2].onclick = function(){toggleSectionD(2)}
-  sec[3].onclick = function(){toggleSectionD(3)}
-  sec[4].onclick = function(){toggleSectionD(4)}
+  var aR = document.getElementsByClassName('arrowR')
+  var aD = document.getElementsByClassName('arrowD')
+  aR[0].onclick = function(){toggleSectionD(0)}
+  aR[1].onclick = function(){toggleSectionD(1)}
+  aR[2].onclick = function(){toggleSectionD(2)}
+  aR[3].onclick = function(){toggleSectionD(3)}
+  aR[4].onclick = function(){toggleSectionD(4)}
+  aD[0].onclick = function(){toggleSectionD(0)}
+  aD[1].onclick = function(){toggleSectionD(1)}
+  aD[2].onclick = function(){toggleSectionD(2)}
+  aD[3].onclick = function(){toggleSectionD(3)}
+  aD[4].onclick = function(){toggleSectionD(4)}
 }  
 
 function toggleSectionD(n){
@@ -244,6 +251,7 @@ function toggleSectionD(n){
 function frontPage(){
   document.getElementById('q').style.display="none"
   document.getElementById('frontP').style.display="block"
+  qNo=0;
 }
 
 function showQPage(n){
@@ -289,14 +297,20 @@ function showQPage(n){
   var aImage = xmlData.getElementsByTagName("aImage")
   var ref = xmlData.getElementsByTagName("ref")
 
-  //show clinical detail
-  document.getElementById('clinical').innerHTML = clinical[n].childNodes[0].nodeValue  
+  //check if there is a clinical detail
+    if (clinical[n].childNodes[0].nodeValue=="NA"){
+      document.getElementById('clinicalH').style.display = "none"
+    } else {
+      document.getElementById('clinicalH').style.display = "block"
+    document.getElementById('clinical').innerHTML = clinical[n].childNodes[0].nodeValue}
   
     
   //check if there is an image
     if (qImage[n].childNodes[0].nodeValue=="NA")
       {document.getElementById('qImageH').style.display = "none"}
-    else {document.getElementById('qImage').src = qImage[n].childNodes[0].nodeValue;
+    else {
+      document.getElementById('qImageH').style.display = "block"
+      document.getElementById('qImage').src = qImage[n].childNodes[0].nodeValue;
     }
 
   //
@@ -310,9 +324,24 @@ function showQPage(n){
     "E) " + e[n].childNodes[0].nodeValue)
   document.getElementById('answer').innerHTML = answer[n].childNodes[0].nodeValue;
   document.getElementById('exp').innerHTML = exp[n].childNodes[0].nodeValue;
-  document.getElementById('aImage').src = aImage[n].childNodes[0].nodeValue;
-  document.getElementById('ref').innerHTML = "Ref: " + ref[n].childNodes[0].nodeValue; 
-  document.getElementById('ref').href = ref[n].childNodes[0].nodeValue;  
+
+  //answer image
+    if (aImage[n].childNodes[0].nodeValue=="NA"){
+      document.getElementById('aImage').style.display = "none"
+    } else {
+      document.getElementById('aImage').style.display = "block"
+      document.getElementById('aImage').src = aImage[n].childNodes[0].nodeValue;
+    }
+  
+  //ref
+  if (ref[n].childNodes[0].nodeValue=="NA"){
+    document.getElementById('ref').style.display = "none"  
+  } else {
+    document.getElementById('ref').style.display = "block"
+    document.getElementById('ref').innerHTML = "Ref: " + ref[n].childNodes[0].nodeValue; 
+    document.getElementById('ref').href = ref[n].childNodes[0].nodeValue;  
+  }
+  
 }
 </script>	
 
