@@ -25,7 +25,7 @@
 .titleTxt {transform: skewY(15deg);transform-origin: top left}
 .titlePad {padding: 15vh 10vw 10vh 10vw;cursor: pointer;}
 .fbPos {top: 90vh;right: 1vw;position: absolute;font-size:2vmax;line-height: 120%;text-align: right}
-.sectionH {font-family: 'Exo 2', sans-serif;color: #74459D;font-size:2.2vmax;
+.sectionH {font-family: 'Exo 2', sans-serif;color: #74459D;margin-top:1vmax;font-size:2.2vmax;
             padding:0.5vmax 1vmax;letter-spacing: -0.1vmin;}
 .sectionD {font-family: 'Average Sans', sans-serif;font-size:2vmax;padding:1vmax 2.5vmax;letter-spacing: -0.1vmin;
 line-height: 130%;background-color: rgba(256, 256, 256,0.8);display: none}
@@ -106,7 +106,7 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);}
       Figure
       <div class="w3-container sectionD">
         <img id="qImage" style="width:100%;padding: 0.5vmax" 
-        onclick="popUp()">
+        onclick="document.getElementById('popUp').style.display='block'">
         </div>
   </div>
 
@@ -214,11 +214,6 @@ window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
-
-function popUp(){
-  if (screen.width>800){
-  document.getElementById('popUp').style.display='block'}
 }
 
 //get xml file
