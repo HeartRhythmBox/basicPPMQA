@@ -52,21 +52,21 @@
     <clinical>NA</clinical>
            
     <qImage>NA</qImage>
-    <mainQ>Which is not true regarding the etiology of pacemaker syndrome?
+    <mainQ>Which of the following pacing modes does not cause pacemaker syndrome?
         </mainQ>
     <choices>
-        <a>In VVI, it is caused by AV dissociation</a>
-        <b>In VVIR, the rate responsive precludes pacemaker syndrome.</b>
-        <c>In DDD, ventricular pacing in response to tracking artifact on atrial channel can cause pacemaker syndrome.
-            </c>
-        <d>In AAI, marked AV prolongation may cause pacemaker syndrome.
-            </d>
-        <e>In VDD, a prolong episode of sinus arrest may trigger pacemaker syndrome.
-            </e>
+        <a>VVI</a>
+        <b>VDD</b>
+        <c>DDD</c>
+        <d>AAI</d>
+        <e>None of the above</e>
         </choices>
-    <answer>B</answer>
+    <answer>E</answer>
     <exp>Pacemaker syndrome can occur in any type of pacemaker, but most commonly with VVI, and VVIR.
     Symptoms relate to Atrioventricular dyssynchrony including shortness of breath, dizziness, fatigue, pulsations in the neck or abdomen, cough.
+    In DDD, abnormal sensing in atrial channel can cause pacemaker syndrome.
+    In AAI, marked AV prolongation may cause pacemaker syndrome.
+    In VDD, a prolong episode of sinus arrest may trigger pacemaker syndrome.
         </exp>
     <aImage>NA</aImage>
     <ref>NA</ref>
@@ -146,8 +146,7 @@
 
 <!--noncapture-->
 <question>
-    <clinical>A 65-year-old man presents to the emergency department after a syncopal event. He was eating dinner and was witnessed to abruptly fall back in his chair for several seconds before regaining consciousness. His past history includes atrial fibrillation and hypertension. He tells you that 15 years ago, he received a pacemaker 
-        because “his heart stopped.” A generator change was performed 5 years ago. He has regular pacemaker checks; the last one was 3 months ago, and he was told everything was fine. His medications include warfarin, metoprolol, and lisinopril.
+    <clinical>A 65-year-old man presents to the emergency department after a syncopal event. He was eating dinner and was witnessed to abruptly fall back in his chair for several seconds before regaining consciousness. His past history includes atrial fibrillation and hypertension. He tells you that 15 years ago, he received a pacemaker because “his heart stopped.” A generator change was performed 5 years ago. He has regular pacemaker checks; the last one was 3 months ago, and he was told everything was fine. His medications include warfarin, metoprolol, and lisinopril.
         
         On examination, his blood pressure is 140/80 mm Hg with a heart rate of 75 bpm. The physical examination is unremarkable. A pacemaker programmer is available to you if needed. As you speak to him, his eyes roll back and a telemetry strip is recorded (as shown).
     </clinical>
@@ -200,8 +199,7 @@
 <!--PMT-->
 <question>
     <clinical>DDD 60/110, AV delay 175, PVARP 360. 
-    The top strip was taken when the patient had palpitation.
-    The bottom strip was taken while the magnet was applied.
+    The top strip was taken when the patient had palpitation. The bottom strip was taken while the magnet was applied.
     </clinical>
            
     <qImage>media/PMT.jpg</qImage>
@@ -227,14 +225,14 @@
     <clinical>NA</clinical>
            
     <qImage>NA</qImage>
-    <mainQ>What is the purpose of post-ventricular atrial refractory perior (PVARP)?
+    <mainQ>What is the principal purpose of post-ventricular atrial refractory perior (PVARP) in dual-chamber pacemaker timing cycle?
         </mainQ>
     <choices>
-        <a>Prevent the ventricular sensing amplifier from sensing the far-field P wave.</a>
-        <b>Limit the maximal atrial rate which ventricular pacing can track.</b>
-        <c>Prevent ventricular oversensing of T wave.</c>
-        <d>Prevent atrial oversensing of far-field QRS.</d>
-        <e>Prevent inhibition of ventricular pacing by electromechanical interference.</e>
+        <a>To prevent the ventricular sensing amplifier from sensing the far-field P wave.</a>
+        <b>To limit the maximal atrial rate which ventricular pacing can track.</b>
+        <c>To prevent ventricular oversensing of T wave.</c>
+        <d>To prevent atrial oversensing of a retrograde atrial impulse.</d>
+        <e>To prevent inhibition of ventricular pacing by electromechanical interference.</e>
         </choices>
     <answer>D</answer>
     <exp>The purpose of any refractory periods is to prevent the pacemaker for responding to inappropriate signals.
@@ -344,6 +342,30 @@
     <ref>NA</ref>
 </question>
 
+<!--drug and stim threshold-->
+<question>
+    <clinical>NA</clinical>
+           
+    <qImage>NA</qImage>
+    <mainQ>Which of the following drugs is most likely to elevate myocardial stimulation threshold 
+    after implantation of a dual-chamber pacemaker?
+        </mainQ>
+    <choices>
+        <a>Digoxin</a>
+        <b>Diltiazem</b>
+        <c>Flecainide</c>
+        <d>Mexiletine</d>
+        <e>Sotalol</e>
+        </choices>
+    <answer>C</answer>
+    <exp>Class IC antiarrhythmic agents are notoriously known to increase pacing threshold. 
+    Digoxin, exercise, epinephrine are known to reduce pacing threshold.  
+        </exp>
+    <aImage>media/aadThreshold.png
+        </aImage>
+    <ref>https://www.sciencedirect.com/science/article/pii/S1880427611800529</ref>
+</question>
+
 <!--infection-->
 <question>
     <clinical>
@@ -411,7 +433,7 @@
     Reprogramming the device is the most appropriate thing to do.
         </exp>
     <aImage>media/emiPOR.png</aImage>
-    <ref>NA</ref>
+    <ref>http://www.onlinejacc.org/content/69/2/189</ref>
 </question>
 
 <!--CRT non pacing during Sinus Tachy-->

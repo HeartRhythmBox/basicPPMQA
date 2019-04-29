@@ -27,7 +27,7 @@
 .fbPos {top: 90vh;right: 1vw;position: absolute;font-size:2vmax;line-height: 120%;text-align: right}
 .sectionH {font-family: 'Exo 2', sans-serif;color: #74459D;font-size:2.2vmax;
             padding:0.5vmax 1vmax;letter-spacing: -0.1vmin;}
-.sectionD {font-family: 'Average Sans', sans-serif;font-size:2vmax;padding:1vmax 2.5vmax;letter-spacing: -0.1vmin;
+.sectionD {font-family: 'Average Sans', sans-serif;font-size:2vmax;letter-spacing: -0.1vmin;
 line-height: 130%;background-color: rgba(256, 256, 256,0.8);display: none}
 .popUpFormat{font-family: 'Average Sans', sans-serif;font-size:2vmax;padding:1vmax 2.5vmax;letter-spacing: -0.1vmin;
 line-height: 130%;background-color: rgba(256, 256, 256,0.8);}
@@ -46,6 +46,22 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);}
 
 #clinical {white-space:pre-line}
 .navBtn {box-shadow: rgba(85, 85, 85,0.4) 2px -2px 4px;}
+
+.pointer {
+    cursor: pointer;
+    height: 0.5em;
+    width: 0.5em;
+    background-color: #fc553d;
+    border-radius: 50%;
+    position: fixed;  
+    z-index: 1;
+    animation: blink 1.5s linear infinite;
+    }
+    @keyframes blink{
+    0%{opacity: 0;}
+    50%{opacity: 0.7}
+    100%{opacity: 1;}
+    }
 
 </style>
 
@@ -85,7 +101,10 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);}
 
 <!--questions-->
 <div id="q" style="background: linear-gradient(to top left,#fbfdd1, #ffffcb);display: none">
-  
+  <!--start pointer-->
+  <div onclick="pointer()">
+    <span class="pointer" style="display: none"></span> 
+
   <!--number-->
   <div id="qNo" class="w3-row grey cursive w3-center" style="font-size:4vmax;padding: 0.5vmax">
       Question 
@@ -105,8 +124,8 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);}
       <span class="arrowR">&nbsp;&#9656;</span><span class="arrowD">&nbsp;&#9662;</span>
       Figure
       <div class="w3-container sectionD">
-        <img id="qImage" style="width:100%;padding: 0.5vmax" 
-        onclick="popUp()">
+        <img id="qImage" style="max-width:100%;max-height: 80vh;padding: 0.5vmax" 
+        ondblclick="popUp()">
         </div>
   </div>
 
@@ -130,7 +149,7 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);}
   <div id="popUp" class="w3-modal">
     <div class="w3-modal-content" style="width:100%">
       <div class="w3-row">
-      <div class="w3-col s8 popUpFormat">
+      <div id="qImageHolder" class="w3-col s8 popUpFormat">
         <img id="qImage2" style="width:100%;">
       </div>
       <div class="w3-col s4 popUpFormat">
@@ -155,10 +174,12 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);}
         <div id="exp" class="w3-container w3-padding purple san2 topCurve" style="font-size:2vmax;color:#555">
         Explaination
         </div>
-        <div>  
-          <img id="aImage" style="max-width:100%;max-height:800px;padding:1vmax"></div>
+        <div id="aImageHolder">  
+          <img id="aImage" style="max-width:100%;max-height:80vh;padding-top:0.5vmax;padding-bottom: 1vmax">
+        </div>
         <div>
-          <a href="" id='ref' target="_blank" style="font-size:1.5vmax;color:#878787;overflow: hidden"></a>
+          <a href="" id='ref' target="_blank" style="font-size:1.2vmax;color:#878787;overflow: hidden;padding:1vmax">
+          </a>
         </div>
       </div>
   </div>
@@ -183,7 +204,7 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);}
 
   <!--nav bar-->
   <div class="w3-bottom w3-center w3-mobile">
-    <div class="w3-bar exo w3-mobile w3-large" style="opacity: 0.9;padding: 1vmax">
+    <div class="w3-bar exo w3-mobile w3-medium" style="opacity: 0.9;padding: 1vmax;">
       <div class="w3-bar-item w3-button w3-round grey w3-padding-small navBtn">Home</div>
       <div class="w3-bar-item w3-button w3-round grey w3-padding-small navBtn">&nbsp;&LeftAngleBracket;&nbsp;</div>
       <div id="currentQ" class="w3-bar-item w3-button w3-round grey w3-padding-small navBtn"></div>
@@ -191,12 +212,14 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);}
     </div>
   </div>
 
+<!--end pointer--></div>
 </div>
 
 
 
 </body>
 
+<script src="pointer.js" ></script>
 <script>
 
 var xmlData;var qNo=0;
@@ -205,6 +228,16 @@ window.onload = function() {
   sectionClickable()
   loadXMLDoc();
 }
+
+var pSwitch = 0;
+window.addEventListener("keydown", function(event) {
+        event.preventDefault();
+        if (event.keyCode===80) {
+        pSwitch=pointerSwitch(pSwitch)
+        }
+    })
+
+
 
 // Get the modal
 var modal = document.getElementById('popUp');
@@ -274,6 +307,10 @@ function toggleSectionD(n){
       D[n].style.display = "block";
       arrowR[n].style.display="none"; arrowD[n].style.display = "inline" 
       sectionStatus[n]=1;
+      if (n==3||n==4){
+        D[n].scrollIntoView({behavior: "smooth", block: "start"})
+        hCenter('aImageHolder')
+      }
     } else {
       D[n].style.display = "none";
       arrowD[n].style.display="none"; arrowR[n].style.display = "inline" 
@@ -385,6 +422,14 @@ function showQPage(n){
     document.getElementById('ref').href = ref[n].childNodes[0].nodeValue;  
   }
   
+}
+
+function hCenter(id){
+  var i = document.getElementById(id)
+  var iWidth = i.offsetWidth
+  var width = window.innerWidth;
+  var pad = (width-iWidth)/2;
+  i.style.paddingLeft = pad + 'px'
 }
 
 
