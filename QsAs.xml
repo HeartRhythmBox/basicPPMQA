@@ -144,6 +144,33 @@
     <ref>https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1540-8159.1991.tb02887.x</ref>
 </question>
 
+<!--insulation brk-->
+<question>
+    <clinical>This stored electrogram (EGM) was recorded in an 88 y/o diabetic with disabling Parkinson’s disease. Twelve years ago, a dual-chamber pacemaker with bipolar leads was implanted for high-grade AV block. The pacemaker generator was changed 2 years ago. 
+    Pacemaker interrogation reveals normal pacing threshold of both leads. The ventricular lead impedance, however, was dropped from 570ohms to 300ohms. The battery longevity is estimated at 5 years.    
+    </clinical>
+           
+    <qImage>media/insulationBrk.jpg</qImage>
+    <mainQ>Based on this EGM, which statement is most likely true?
+        </mainQ>
+    <choices>
+        <a>Electromechanical interference is present.</a>
+        <b>The tracing is diagnostic for atrial fibrillation.</b>
+        <c>The abnormal signals are myopotential that do not require any intervention.</c>
+        <d>Lead insulation breach is the cause.</d>
+        <e>Urgent generator change is needed.</e>
+        </choices>
+    <answer>D</answer>
+    <exp>Tracing = Noise in V lead resulting in V oversensing and failure to pace.
+    Extracardiac signals are seen only in the ventricular channel. Thus, EMI is unlikely. 
+    The lead is 12 years-old with relatively low impedance. Insulation break is most likely the cause.
+    Generator change but lead revision is necessary.
+        </exp>
+    <aImage>media/leadImpedance.png
+        </aImage>
+    <ref>https://onlinelibrary.wiley.com/doi/book/10.1002/9781444300659</ref>
+</question>
+
 <!--noncapture-->
 <question>
     <clinical>A 65-year-old man presents to the emergency department after a syncopal event. He was eating dinner and was witnessed to abruptly fall back in his chair for several seconds before regaining consciousness. His past history includes atrial fibrillation and hypertension. He tells you that 15 years ago, he received a pacemaker because “his heart stopped.” A generator change was performed 5 years ago. He has regular pacemaker checks; the last one was 3 months ago, and he was told everything was fine. His medications include warfarin, metoprolol, and lisinopril.
