@@ -14,21 +14,29 @@
 .san2 {font-family: 'Average Sans', sans-serif;}
 .cursive {font-family: 'Satisfy', cursive;}
 
+.yellow {background-color:#FBFDD1}
+.grey {background-color: #F4F1E9}
+.purple {background-color: #F3DDF6}
+.dkPurple {color: #74459D}
+.green {color: #58958E}
+
 .dkGrey {background-color: #0B0C10}
 .grey {background-color: #1F2833}
 .ltGrey {background-color: #c5c6c7}
 .cyan {background-color: #66FCF1}
 .blue {background-color: #45A29E}
 
-.title {width:100vw;height: 100vh;background: linear-gradient(to right,#0B0C10, #1F2833);
+.title {width:100vw;height: 100vh;background: linear-gradient(to top left,#0B0C10, #1F2833);
+        transform: skewY(-15deg);transform-origin: top left}
+.titleO {width:100vw;height: 100vh;background: linear-gradient(to top left,#fbfdd1, #ffffcb);
         transform: skewY(-15deg);transform-origin: top left}
 .titleTxt {transform: skewY(15deg);transform-origin: top left}
 .titlePad {padding: 15vh 10vw 10vh 10vw;cursor: pointer;}
 .fbPos {top: 90vh;right: 1vw;position: absolute;font-size:2vmax;line-height: 120%;text-align: right}
-.sectionH {font-family: 'Exo 2', sans-serif;color: #66fcf1;font-size:2.2vmax;
+.sectionH {font-family: 'Exo 2', sans-serif;color: #c5c6c7;font-size:2.2vmax;
             padding:0.5vmax 1vmax;letter-spacing: -0.1vmin;}
-.sectionD {font-family: 'Average Sans', sans-serif;font-size:2vmax;letter-spacing: -0.1vmin;color:white;
-line-height: 130%;display: none;padding:1vmax;border-top:0.1vmax groove #45a29e }
+.sectionD {font-family: 'Average Sans', sans-serif;font-size:2vmax;letter-spacing: -0.1vmin;
+line-height: 130%;background-color: rgba(256, 256, 256,0.8);display: none}
 .popUpFormat{font-family: 'Average Sans', sans-serif;font-size:2vmax;padding:1vmax 2.5vmax;letter-spacing: -0.1vmin;
 line-height: 130%;background-color: rgba(256, 256, 256,0.8);}
 .arrowD {display: none;cursor: pointer;}
@@ -46,7 +54,7 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);}
 
 #clinical {white-space:pre-line}
 #exp {white-space:pre-line}
-.navBtn {box-shadow: rgba(102, 102, 102, 0.4) 2px -2px 4px;}
+.navBtn {box-shadow: rgba(85, 85, 85,0.4) 2px -2px 4px;}
 
 .pointer {
     cursor: pointer;
@@ -90,7 +98,7 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);}
                 </span>
             </div>
         </div>
-        <div class="w3-container san2 fbPos" style="color:#1f2833">
+        <div class="w3-container san2 green fbPos">
           <a href="https://www.facebook.com/HeartRhythmBox/" style="text-decoration:none" target="_blank">
           <i class="fab fa-facebook-square fa-lg">
           </i> HeartRhythmBox
@@ -101,7 +109,7 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);}
   </div>
 
 <!--questions-->
-<div id="q" style="background-color:#1F2833;display: none;min-height: 100vh">
+<div id="q" style="background: linear-gradient(to top left,#0B0C10, #1F2833);display: none">
   <!--start pointer-->
   <div onclick="pointer()">
     <span class="pointer" style="display: none"></span> 
@@ -167,27 +175,27 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);}
   <div style="padding:2vmax" class="w3-row sectionH">
       <span class="arrowR">&nbsp;&#9656;</span><span class="arrowD">&nbsp;&#9662;</span>
       The answer is...
-      <div class="w3-container sectionD w3-padding">
-        <div id="answer" class="w3-container w3-padding exo topCurve blue" 
-        style="color:white;font-size:2.5vmax;">
+      <div class="w3-container sectionD">
+        <div id="answer" class="w3-container w3-padding exo topCurve" 
+        style="background-color:#58958E;color:white;font-size:2.5vmax;">
         Answer:
-        </div>
-        <div id="exp" class="w3-container w3-padding w3-white san2" style="font-size:2vmax;color:#1F2833">
+        </div><br>
+        <div id="exp" class="w3-container w3-padding purple san2 topCurve" style="font-size:2vmax;color:#555">
         Explaination
         </div>
         <div id="aImageHolder">  
-          <img id="aImage" style="max-width:100%;max-height:75vh;padding-top:0.5vmax;padding-bottom: 0.5vmax">
+          <img id="aImage" style="max-width:100%;max-height:80vh;padding-top:0.5vmax;padding-bottom: 1vmax">
         </div>
         <div>
-          <a href="" id='ref' target="_blank" style="font-size:1.2vmax;color:#878787;overflow: hidden;padding:0.5vmax">
+          <a href="" id='ref' target="_blank" style="font-size:1.2vmax;color:#878787;overflow: hidden;padding:1vmax">
           </a>
         </div>
       </div>
   </div>
   
 
-  <div class="w3-row exo" style="font-size:1vmax;color:#878787;
-  padding: 1.5vmax 1vmax 1.5vmax 1vmax;text-align: right; border-top: #273240 solid 0.1vh">
+  <div class="w3-row exo" style="font-size:1vmax;color:#878787;background-color:white;
+  padding: 1vmax 1vmax 5vmax 1vmax;text-align: right">
     Basic Pacing Concept Qs&As
     <br>
     
@@ -206,10 +214,10 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);}
   <!--nav bar-->
   <div class="w3-bottom w3-center w3-mobile">
     <div class="w3-bar exo w3-mobile w3-medium" style="opacity: 0.9;padding: 1vmax;">
-      <div class="w3-bar-item w3-button w3-round ltGrey w3-padding-small navBtn">Home</div>
-      <div class="w3-bar-item w3-button w3-round ltGrey w3-padding-small navBtn">&nbsp;&LeftAngleBracket;&nbsp;</div>
-      <div id="currentQ" class="w3-bar-item w3-button w3-round ltGrey w3-padding-small navBtn"></div>
-      <div class="w3-bar-item w3-button w3-round ltGrey w3-padding-small navBtn">&nbsp;&RightAngleBracket;&nbsp;</div>
+      <div class="w3-bar-item w3-button w3-round grey w3-padding-small navBtn">Home</div>
+      <div class="w3-bar-item w3-button w3-round grey w3-padding-small navBtn">&nbsp;&LeftAngleBracket;&nbsp;</div>
+      <div id="currentQ" class="w3-bar-item w3-button w3-round grey w3-padding-small navBtn"></div>
+      <div class="w3-bar-item w3-button w3-round grey w3-padding-small navBtn">&nbsp;&RightAngleBracket;&nbsp;</div>
     </div>
   </div>
 
