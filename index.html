@@ -46,7 +46,11 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);}
 
 #clinical {white-space:pre-line}
 #exp {white-space:pre-line}
-.navBtn {box-shadow: rgba(102, 102, 102, 0.4) 2px -2px 4px;}
+.navBtn {box-shadow: rgba(59, 59, 59, 0.6) 2px -2px 4px;}
+#aImage {cursor: zoom-in}
+#indexList {position: fixed;max-height:50vh;max-width:50vw;display: none;
+overflow-x: hidden;overflow-y:scroll;z-index: 2;background-color:rgba(241, 241, 241,0.95);
+box-shadow: rgba(59, 59, 59, 0.6) 2px -2px 4px;}
 
 .pointer {
     cursor: pointer;
@@ -110,7 +114,7 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);}
   <div id="qNo" class="w3-row cyan cursive w3-center" style="font-size:4vmax;padding: 0.5vmax">
       Question 
   </div>
-  <div id="demo"></div>
+  <div id="demo" style="color:white"></div>
   <!--clinical detail-->
   <div id="clinicalH" class="w3-row sectionH">
         <span class="arrowR">&nbsp;&#9656;</span><span class="arrowD">&nbsp;&#9662;</span>
@@ -187,7 +191,7 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);}
   
 
   <div class="w3-row exo" style="font-size:1vmax;color:#878787;
-  padding: 1.5vmax 1vmax 1.5vmax 1vmax;text-align: right; border-top: #273240 solid 0.1vh">
+  padding: 1.5vmax 1vmax 5vmax 1vmax;text-align: right; border-top: #273240 solid 0.1vh">
     Basic Pacing Concept Qs&As
     <br>
     
@@ -205,13 +209,18 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);}
 
   <!--nav bar-->
   <div class="w3-bottom w3-center w3-mobile">
-    <div class="w3-bar exo w3-mobile w3-medium" style="opacity: 0.9;padding: 1vmax;">
+    <!--index-->
+    <ul id="indexList" class="w3-ul san2 w3-padding-small w3-center">
+    </ul>
+    <div id="navBar" class="w3-bar exo w3-mobile w3-medium" style="opacity: 0.9;padding: 1vmax;">
       <div class="w3-bar-item w3-button w3-round ltGrey w3-padding-small navBtn">Home</div>
       <div class="w3-bar-item w3-button w3-round ltGrey w3-padding-small navBtn">&nbsp;&LeftAngleBracket;&nbsp;</div>
       <div id="currentQ" class="w3-bar-item w3-button w3-round ltGrey w3-padding-small navBtn"></div>
       <div class="w3-bar-item w3-button w3-round ltGrey w3-padding-small navBtn">&nbsp;&RightAngleBracket;&nbsp;</div>
     </div>
   </div>
+
+  
 
 <!--end pointer--></div>
 </div>
@@ -223,10 +232,10 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);}
 <script src="pointer.js" ></script>
 <script>
 
-var xmlData;var qNo=0;
+var xmlData;var qNo=0;var zoom;
 window.onload = function() {
   enableNavBtn();
-  sectionClickable()
+  sectionClickable();
   loadXMLDoc();
 }
 
@@ -255,7 +264,7 @@ function popUp(){
   document.getElementById('popUp').style.display='block'}
 }
 
-//get xml file
+//get xml file and generate indexList
 function loadXMLDoc() {
   var xml = new XMLHttpRequest();
   xml.open ('GET','QsAs.xml',false)
@@ -268,6 +277,70 @@ function enableNavBtn(){
   btn[0].onclick = function(){frontPage()};
   btn[1].onclick = function(){qNav(-1)};
   btn[3].onclick = function(){qNav(1)};
+
+  //show Qindex
+  btn[2].onclick = function(){
+    showIndex()}
+}
+
+//cleanup
+function cleanList(){
+    var list = document.getElementById('indexList')
+    list.style.display = "none"
+    var old = list.getElementsByTagName('li').length
+    if (old!=0){
+      list.innerHTML = ""}
+    }
+
+
+function showIndex(){
+    var index = xmlData.getElementsByTagName('index')
+    var list = document.getElementById('indexList')
+
+    //check nav bar position
+    var bar = document.getElementById('navBar')
+    var rect = bar.getBoundingClientRect();
+    x = rect.left;h = rect.height;w =rect.width;
+
+    //check display status
+    if (list.style.display == "inline-block"){
+      cleanList()
+    } else {
+      list.style.display = "inline-block"
+      
+    }
+    
+    //generate list
+    list.style.bottom = h + 'px';
+    list.style.left = x + 'px';list.style.width = w + 'px'
+    for (var i=0;i<index.length;i++){
+      var text = index[i].childNodes[0].nodeValue;
+      generateList(text)
+    }
+
+    function generateList(text){  
+      var newLi = document.createElement("li");
+      var node = document.createTextNode(text)
+      newLi.appendChild(node)
+      list.appendChild(newLi)
+      newLi.style.cursor = "pointer"
+      newLi.onclick = function(){
+        var n = matchIndex(text);cleanList();
+        showQPage(n);qNo = n;
+      }
+    }
+
+}
+
+function matchIndex(node){
+  var index = xmlData.getElementsByTagName('index')
+  for (var i =0;i<index.length;i++){
+    var text = index[i].childNodes[0].nodeValue
+    if (node==text){
+      var n=i;break;
+    }
+  }
+  return n;
 }
 
 function qNav(x){
@@ -281,7 +354,7 @@ function qNav(x){
     nextQ=0;
   }
   qNo = nextQ
-  showQPage(nextQ)
+  showQPage(nextQ);cleanList();
 }
 
 var sectionStatus = [0,0,0,0,0]
@@ -392,17 +465,17 @@ function showQPage(n){
   document.getElementById('mainQ2').innerHTML = mainQ[n].childNodes[0].nodeValue;
   
   document.getElementById('choices').innerHTML = (
-    "A) " + a[n].childNodes[0].nodeValue + "<br/>"+
-    "B) " + b[n].childNodes[0].nodeValue + "<br/>"+
-    "C) " + c[n].childNodes[0].nodeValue + "<br/>"+
-    "D) " + d[n].childNodes[0].nodeValue + "<br/>"+
-    "E) " + e[n].childNodes[0].nodeValue)
+    "a) " + a[n].childNodes[0].nodeValue + "<br/>"+
+    "b) " + b[n].childNodes[0].nodeValue + "<br/>"+
+    "c) " + c[n].childNodes[0].nodeValue + "<br/>"+
+    "d) " + d[n].childNodes[0].nodeValue + "<br/>"+
+    "e) " + e[n].childNodes[0].nodeValue)
   document.getElementById('choices2').innerHTML = (
-    "A) " + a[n].childNodes[0].nodeValue + "<br/>"+
-    "B) " + b[n].childNodes[0].nodeValue + "<br/>"+
-    "C) " + c[n].childNodes[0].nodeValue + "<br/>"+
-    "D) " + d[n].childNodes[0].nodeValue + "<br/>"+
-    "E) " + e[n].childNodes[0].nodeValue)
+    "a) " + a[n].childNodes[0].nodeValue + "<br/>"+
+    "b) " + b[n].childNodes[0].nodeValue + "<br/>"+
+    "c) " + c[n].childNodes[0].nodeValue + "<br/>"+
+    "d) " + d[n].childNodes[0].nodeValue + "<br/>"+
+    "e) " + e[n].childNodes[0].nodeValue)
   document.getElementById('answer').innerHTML = answer[n].childNodes[0].nodeValue;
   document.getElementById('exp').innerHTML = exp[n].childNodes[0].nodeValue;
 
@@ -410,10 +483,28 @@ function showQPage(n){
     if (aImage[n].childNodes[0].nodeValue=="NA"){
       document.getElementById('aImage').style.display = "none"
     } else {
+      aImageZoom(1)
       document.getElementById('aImage').style.display = "block"
       document.getElementById('aImage').src = aImage[n].childNodes[0].nodeValue;
+      //document.getElementById('aImage').onclick = function(){aImageZoom(zoom)}
     }
-  
+  //zoom
+  function aImageZoom(zoom){
+    var img = document.getElementById('aImage')
+    if (zoom==0){
+      zoom=1;
+      img.style.width = "100%";img.style.maxHeight = "fit-content";img.style.height = "auto"
+      img.scrollIntoView({behavior: "smooth", block: "start"})
+      img.style.cursor = "zoom-out";img.onclick = function(){aImageZoom(zoom)}
+      } else {
+      zoom=0;img.onclick = function(){aImageZoom(zoom)}
+      img.style.cursor = "zoom-in";
+      img.style.maxHeight = "75vh";img.style.width = "auto"
+      document.getElementById('answer').scrollIntoView({behavior: "smooth", block: "start"})
+    }
+  }
+
+
   //ref
   if (ref[n].childNodes[0].nodeValue=="NA"){
     document.getElementById('ref').style.display = "none"  

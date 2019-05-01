@@ -3,6 +3,7 @@
 <qXML>
 <!--frame>
 <question>
+    <index></index>
     <clinical>
         </clinical>
            
@@ -26,6 +27,7 @@
 
 <!--chb ppm mode-->
 <question>
+    <index>CHB PPM mode</index>
     <clinical>For the following patient undergoing pacemaker implantation,
         </clinical>
            
@@ -49,6 +51,7 @@
 
 <!--ppm syndrome-->
 <question>
+    <index>PPM syndrome</index>
     <clinical>NA</clinical>
            
     <qImage>NA</qImage>
@@ -74,6 +77,7 @@
 
 <!--optimal mode-->
 <question>
+    <index>Optimal Mode</index>
     <clinical>A 75-year-old woman presents to her cardiologist’s office with the complaint of dizziness. Her ECG revealed complete AV block. During exercise, her sinus rate only goes to 70 bpm.
     </clinical>
            
@@ -98,6 +102,7 @@
 
 <!--dual over single-->
 <question>
+    <index>Dual over Single PPM</index>
     <clinical>NA</clinical>
            
     <qImage>NA</qImage>
@@ -122,6 +127,7 @@
 
 <!--bipolar lead-->
 <question>
+    <index>Bipolar lead</index>
     <clinical>NA</clinical>
     <qImage>NA</qImage>
     <mainQ>An advanctage of bipolar over unipolar leads is:
@@ -145,6 +151,7 @@
 
 <!--insulation brk-->
 <question>
+    <index>Insulation break</index>
     <clinical>This stored electrogram (EGM) was recorded in an 88 y/o diabetic with disabling Parkinson’s disease. Twelve years ago, a dual-chamber pacemaker with bipolar leads was implanted for high-grade AV block. The pacemaker generator was changed 2 years ago. 
     Pacemaker interrogation reveals normal pacing threshold of both leads. The ventricular lead impedance, however, was dropped from 570ohms to 300ohms. The battery longevity is estimated at 5 years.    
     </clinical>
@@ -172,6 +179,7 @@
 
 <!--noncapture-->
 <question>
+    <index>Non-capture</index>
     <clinical>A 65-year-old man presents to the emergency department after a syncopal event. He was eating dinner and was witnessed to abruptly fall back in his chair for several seconds before regaining consciousness. His past history includes atrial fibrillation and hypertension. He tells you that 15 years ago, he received a pacemaker because “his heart stopped.” A generator change was performed 5 years ago. He has regular pacemaker checks; the last one was 3 months ago, and he was told everything was fine. His medications include warfarin, metoprolol, and lisinopril.
         
         On examination, his blood pressure is 140/80 mm Hg with a heart rate of 75 bpm. The physical examination is unremarkable. A pacemaker programmer is available to you if needed. As you speak to him, his eyes roll back and a telemetry strip is recorded (as shown).
@@ -201,6 +209,7 @@
 
 <!--ppm syndrome ecg-->
 <question>
+    <index>PPM syndrome ECG</index>
     <clinical>DDD 70/110, AV delay 175, PVARP 275.
     Patient complaint of fatigue and shortness of breath.
         </clinical>
@@ -224,6 +233,7 @@
 
 <!--VRP-->
 <question>
+    <index>VRP</index>
     <clinical>NA</clinical>
            
     <qImage>NA</qImage>
@@ -247,6 +257,7 @@
 
 <!--PVARP-->
 <question>
+    <index>PVARP</index>
     <clinical>NA</clinical>
            
     <qImage>NA</qImage>
@@ -270,6 +281,7 @@
 
 <!--PMT-->
 <question>
+    <index>PMT</index>
     <clinical>DDD 60/110, AV delay 175, PVARP 360. 
     The top strip was taken when the patient had palpitation. The bottom strip was taken while the magnet was applied.
     </clinical>
@@ -294,6 +306,7 @@
 
 <!--wkb-->
 <question>
+    <index>WKB</index>
     <clinical>A DDD pacemaker is programmed to a lower rate limit of 50 bpm, an upper rate limit of  125 bpm, and an AV delay of 175 ms that is reduced by 25 ms at an atrial rate of 100 bpm and a post ventricular-atrial refractory period of 300 ms.
         </clinical>
            
@@ -317,6 +330,7 @@
 
 <!--undersensing-->
 <question>
+    <index>Undersensing</index>
     <clinical>Temporary venous pacemaker. Setting: VVI 75bpm, output 5mA, sensitivity 5 mV. 
         </clinical>
            
@@ -338,6 +352,7 @@
 
 <!--cautery-->
 <question>
+    <index>Cautery</index>
     <clinical>A 50 year-old lady with history of complete heart block s/p PPM is undergoing an abdominal surgery.
     During the surgery, the below tracing is observed while the cautery is being applied.
         </clinical>
@@ -360,8 +375,34 @@
     <ref>https://www.sciencedirect.com/science/article/pii/S073510971637067X</ref>
 </question>
 
+<!--magnet-->
+<question>
+    <index>Magnet</index>
+    <clinical>NA</clinical>
+           
+    <qImage>NA</qImage>
+    <mainQ>Magnet operation in a pacemaker system CANNOT be used to:
+        </mainQ>
+    <choices>
+        <a>Assess the battery status.</a>
+        <b>Terminate a retrograde cycle.</b>
+        <c>Assess the stimulation threshold safety margin.</c>
+        <d>Check for proper sensing.</d>
+        <e>Identify the manufacturer of the pacemaker.</e>
+        </choices>
+    <answer>D</answer>
+    <exp>In a pacemker, magnet application induces asynchronous pacing which could be useful in terminating PMT or preventing pacing inhibition from EMI or other oversensing problems.
+    Magnet can also be used to identify the manafacturer, verify pacing capture, and provide the battery status.
+    TMT = Threshold Margin Test = 3 paced pulses at 100 bpm, with the pulse width of the last pacing reduced by 20%. 
+        </exp>
+    <aImage>media/magnetDiagram.jpeg
+        </aImage>
+    <ref>https://academic.oup.com/europace/article/13/9/1222/551468#40003342</ref>
+</question>
+
 <!--track AF-->
 <question>
+    <index>track AF</index>
     <clinical>64F s/p DDD pacemaker is in the ICU after a colectomy.
         </clinical>
            
@@ -386,6 +427,7 @@
 
 <!--drug and stim threshold-->
 <question>
+    <index>Drug and Threshold</index>
     <clinical>NA</clinical>
            
     <qImage>NA</qImage>
@@ -410,6 +452,7 @@
 
 <!--infection-->
 <question>
+    <index>Infection</index>
     <clinical>A 66-year-old woman with hypertension underwent dual-chamber pacemaker implantation 7 years ago due to symptomatic sinus node dysfunction. She has no other prior medical history. Six weeks ago, she was treated for a mild lower-extremity cellulitis. 
     She comes into your office today complaining of 4 days of soreness in the pacemaker pocket. Physical examination reveals erythema, swelling, and tenderness at the pacemaker pocket, without drainage. She is afebrile and the white blood cell count is normal. A transthoracic echocardiogram is normal.
         </clinical>
@@ -431,6 +474,7 @@
 
 <!--fusion-->
 <question>
+    <index>Fusion</index>
     <clinical>DDD</clinical>
            
     <qImage>media/fusionQ.png</qImage>
@@ -452,6 +496,7 @@
 
 <!--post CV-->
 <question>
+    <index>Post CV</index>
     <clinical>A patient undergoes a cardioversion six months after undergoing implantation of a dual chamber pacemaker (DDD 60/140). After the cardioversion, the ECG monitor shows ventricular pacing at 65 bpm with no evidence of either atrial pacing or tracking.
     Pacemaker interrogation reveals normal pacing parameters.
         </clinical>
@@ -476,6 +521,7 @@
 
 <!--left sided implant-->
 <question>
+    <index>L sided implant</index>
     <clinical>A 75 year-old man relocated from remote hospital and comes to see you today. He has history of complete heart block in which he underwent a pacemaker implantation a year ago. He is feeling fine otherwise. Pacemaker interrogation reveals normal pacemaker parameters. There was no high atrial or ventricular rate events. An ECG is as shown. 
         </clinical>
            
@@ -498,6 +544,7 @@
 
 <!--a dislodge-->
 <question>
+    <index>A dislodgement</index>
     <clinical>A 56 year-old man with hypertrophic cardiomyopathy and sinus node dysfunction underwent a dual-chamber pacemaker implantation earlier this morning. While being monitored in CCU, the nurse reports to you that something did not look right in his ECG tracing. The patient denies any complaints.
         </clinical>
            
@@ -521,6 +568,7 @@
 
 <!--a dislodge causing safety pacing-->
 <question>
+    <index>Safety Pacing</index>
     <clinical>Continued from the previous case.
     One of the tracing is as shown. The pacemaker setting is DDD 60, AV delay 200.
     </clinical>
@@ -545,8 +593,61 @@
     <ref>NA</ref>
 </question>
 
+<!--cross talk-->
+<question>
+    <index>Cross Talk</index>
+    <clinical>You are presented with the following tracing from a patient in the pacemaker clinic for a routine visit. The patient is rather stoic and initially denies any symptoms. With further questioning, she admits that she occasionally has a very transient sensation of lightheadedness.
+    The pacemaker settting is DDDR 50/110, PVARP 160ms.
+        </clinical>
+           
+    <qImage>media\crossTalk.png</qImage>
+    <mainQ>Identify the problem and provide the solutions.
+        </mainQ>
+    <choices>
+        <a>Ventricular oversensing - increase the post atrial ventricular blanking period.</a>
+        <b>Loose set screw - lead revision.</b>
+        <c>Loss of ventricular capture - increase the ventricular output.</c>
+        <d>Insulation failure - lead revision.</d>
+        <e>Normal pacemaker function - routine follow up.</e>
+        </choices>
+    <answer>A</answer>
+    <exp>Cross talk. 
+    At the 3rd beat, there is an atrial pacing with A capture. No evidence of ventricular pacing following that beat is observed. V oversensing is likely the problem. When oversensing occurs only after the atrial pacing, oversensing the atrial signal or cross talk is the culprit.
+    The initial solutions would be reducing the atrial output or lowering the ventricular sensitivity or increasing the PAVB or turn on the safety pacing if available. If the programmer is unavailable, magnet application could be used temporarily.
+        </exp>
+    <aImage>NA</aImage>
+    <ref>NA</ref>
+</question>
+
+<!--lead switch-->
+<question>
+    <index>Leads Switch</index>
+    <clinical>A 72-year-old patient underwent implantation of a DDD pacemaker for paroxysmal complete AV block. The patient experienced syncope on the ward 30min after the intervention. The rhythm strip during the syncopal event is shown.
+    Device settings: DDD 60/120, PAV 200, SAV 160. 
+        </clinical>
+           
+    <qImage>media/leadSwitch.png</qImage>
+    <mainQ>What is the problem?
+        </mainQ>
+    <choices>
+        <a>Atrial lead dislodged to the ventricle.</a>
+        <b>Ventricular lead dislodged to the atrium.</b>
+        <c>Atrial and ventricular leads switch in the header.</c>
+        <d>Ventricular lead fracture.</d>
+        <e>Generator failure.</e>
+        </choices>
+    <answer>C</answer>
+    <exp>See explanation below.
+    Lead fracture or generator failure are unlikely right after the implantation.    
+    </exp>
+    <aImage>media/leadSwitchAnswer.png
+        </aImage>
+    <ref>http://oxfordmedicine.com/view/10.1093/med/9780198727774.001.0001/med-9780198727774</ref>
+</question>
+
 <!--MVP-->
 <question>
+    <index>MVP</index>
     <clinical>80 year-old lady s/p dual-chamber pacemaker for sick sinus syndrome, complains of some palpitation and near syncope.
     ECG tracing is as shown.
     </clinical>
@@ -569,10 +670,36 @@
     <ref>NA</ref>
 </question>
 
+<!--rate drop response-->
+<question>
+    <index>Rate drop response</index>
+    <clinical>A 45-year-old male had syncope while driving. Carotid sinus massage revealed a 7s sinus pause with malaise. Hypersensitive carotid sinus syndrome was diagnosed, and a dual-chamber pacemaker was implanted. After implantation, carotid sinus massage was repeated, and the patient remained asymptomatic. The EGM during the manoeuvre is shown. 
+        </clinical>
+           
+    <qImage>media/RDR.png</qImage>
+    <mainQ>What do you observe?
+        </mainQ>
+    <choices>
+        <a>Rate drop response</a>
+        <b>Atrial overdrive pacing</b>
+        <c>Managed ventricular pacing</c>
+        <d>Hysteresis</d>
+        <e>Upper rate behaviour</e>
+        </choices>
+    <answer>A</answer>
+    <exp>Rate Drop Response (RDR) is intended to provide backup pacing and prevent associated symptoms in patients who experience occasional episodes of significant drop in heart rate (e.g. syncope from cardioinhibitory and mixed forms of carotid sinus syndrome).
+        </exp>
+    <aImage>media/RDRAnswer.png
+        </aImage>
+    <ref>http://oxfordmedicine.com/view/10.1093/med/9780198727774.001.0001/med-9780198727774</ref>
+</question>
+
+
 <!--pause artifact-->
 <question>
-<clinical>A 32-year-old woman is referred for evaluation of multiple syncopal events over the the last 5 years. Her workup included a negative tilt table test, a normal ECG, echocardiogram and normal Holter monitor (during which no symptoms occurred). She then received an implantable loop recorder. The following tracing was recorded.
-</clinical>
+    <index>Pause artifacts</index>
+    <clinical>A 32-year-old woman is referred for evaluation of multiple syncopal events over the the last 5 years. Her workup included a negative tilt table test, a normal ECG, echocardiogram and normal Holter monitor (during which no symptoms occurred). She then received an implantable loop recorder. The following tracing was recorded.
+    </clinical>
            
     <qImage>media/pauseArtifact.png</qImage>
     <mainQ>Which of the following would be the next best step?</mainQ>
@@ -594,6 +721,7 @@
 
 <!--CRT non pacing during Sinus Tachy-->
 <question>
+    <index>CRT above URL</index>
     <clinical>A 66 year old woman with a nonischemic cardiomyopathy, LBBB received a CRT-D device 2 months ago. 
         The device is programmed DDDR, 60-125 bpm. She is now hospitalized with pneumonia. 
     </clinical>
@@ -616,6 +744,30 @@
     <aImage>media/bivVector.png
         </aImage>
     <ref>https://academic.oup.com/europace/article/15/3/376/432909</ref>
+</question>
+
+<!--Unidirectional AV block-->
+<question>
+    <index>Unidirectional AV block</index>
+    <clinical>A 68-year-old patient with pre-existent LBBB underwent an electrophysiological study for syncope. During placement of a catheter in the right ventricle (RV), asystole during 4s occurred with resumption of a rhythm, as shown in Figure (a). 
+    The quadripolar catheter was retracted to the His bundle region, revealing the recording shown in Figure (b).
+        </clinical>
+           
+    <qImage>media/egmCHB.png</qImage>
+    <mainQ>What do you observe?
+        </mainQ>
+    <choices>
+        <a>Supra-hisian AV block</a>
+        <b>Second-degree AV block</b>
+        <c>Infra-hisian block with complete dissociation</c>
+        <d>Infra-hisian unidirectional block</d>
+        <e>Intra-hisian conduction delay</e>
+        </choices>
+    <answer>D</answer>
+    <exp>Infra-Hisian complete atrioventricular block with VA conduction.
+        </exp>
+    <aImage>NA</aImage>
+    <ref>NA</ref>
 </question>
 
 </qXML>
