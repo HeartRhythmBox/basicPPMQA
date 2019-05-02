@@ -19,7 +19,6 @@
 .ltGrey {background-color: #c5c6c7}
 .cyan {background-color: #66FCF1}
 .blue {background-color: #45A29E}
-.orange {background-color: #f37a48}
 
 .title {width:100vw;height: 100vh;background: linear-gradient(to right,#0B0C10, #1F2833);
         transform: skewY(-15deg);transform-origin: top left}
@@ -73,6 +72,27 @@ box-shadow: rgba(59, 59, 59, 0.6) 2px -2px 4px;}
     50%{opacity: 0.7}
     100%{opacity: 1;}
     }
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #ff639c;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  }
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 
 </style>
 
@@ -139,7 +159,8 @@ box-shadow: rgba(59, 59, 59, 0.6) 2px -2px 4px;}
   <div id="qImageH" class="w3-row sectionH">
       <span class="arrowR">&nbsp;&#9656;</span><span class="arrowD">&nbsp;&#9662;</span>
       Figure
-      <div class="w3-container sectionD">
+      <div class="w3-container w3-center sectionD">
+        <div class="loader"></div>
         <img id="qImage" style="max-width:100%;max-height: 80vh;padding: 0.5vmax"
         ondblclick="popUp()">
         </div>
@@ -486,6 +507,10 @@ function showQPage(n){
       {document.getElementById('qImageH').style.display = "none"}
     else {
       document.getElementById('qImageH').style.display = "block"
+      document.getElementById('qImage').onload = function() {
+        var l = document.getElementsByClassName('loader')
+        l[0].style.display = "none"
+      }
       document.getElementById('qImage').src = qImage[n].childNodes[0].nodeValue;
       document.getElementById('qImage2').src = qImage[n].childNodes[0].nodeValue;
     }
@@ -516,7 +541,6 @@ function showQPage(n){
       aImageZoom(1)
       document.getElementById('aImage').style.display = "block"
       document.getElementById('aImage').src = aImage[n].childNodes[0].nodeValue;
-      //document.getElementById('aImage').onclick = function(){aImageZoom(zoom)}
     }
   //zoom
   function aImageZoom(zoom){
