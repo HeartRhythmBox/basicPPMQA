@@ -508,8 +508,8 @@ function showQPage(n){
       document.getElementById('qImageH').style.display = "block"
       document.getElementById('qImage').src = qImage[n].childNodes[0].nodeValue;
       document.getElementById('qImage').onload = function() {
-        document.getElementById('loader').style.display = "none"
         document.getElementById('qImage').style.visibility = "visible"
+        document.getElementById('loader').style.display = "none"
       }
       document.getElementById('qImage2').src = qImage[n].childNodes[0].nodeValue;
     }
