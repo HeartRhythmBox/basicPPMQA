@@ -73,6 +73,27 @@ box-shadow: rgba(59, 59, 59, 0.6) 2px -2px 4px;}
     100%{opacity: 1;}
     }
 
+#loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #ff639c;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 </style>
 
 <body>
@@ -139,9 +160,10 @@ box-shadow: rgba(59, 59, 59, 0.6) 2px -2px 4px;}
       <span class="arrowR">&nbsp;&#9656;</span><span class="arrowD">&nbsp;&#9662;</span>
       Figure
       <div class="w3-container w3-center sectionD">
+        <div id="loader"></div>
         <img id="qImage" style="max-width:100%;max-height: 80vh;padding: 0.5vmax"
         ondblclick="popUp()">
-        </div>
+      </div>
   </div>
 
   <!--mainQ-->
@@ -486,6 +508,7 @@ function showQPage(n){
       document.getElementById('qImageH').style.display = "block"
       document.getElementById('qImage').src = qImage[n].childNodes[0].nodeValue;
       document.getElementById('qImage').onload = function() {
+        document.getElementById('loader').style.display = "none"
         document.getElementById('qImage').style.visibility = "visible"
       }
       document.getElementById('qImage2').src = qImage[n].childNodes[0].nodeValue;
