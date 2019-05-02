@@ -73,7 +73,7 @@ box-shadow: rgba(59, 59, 59, 0.6) 2px -2px 4px;}
     100%{opacity: 1;}
     }
 
-.loader {
+#loader {
   border: 16px solid #f3f3f3;
   border-radius: 50%;
   border-top: 16px solid #ff639c;
@@ -160,9 +160,9 @@ box-shadow: rgba(59, 59, 59, 0.6) 2px -2px 4px;}
       <span class="arrowR">&nbsp;&#9656;</span><span class="arrowD">&nbsp;&#9662;</span>
       Figure
       <div class="w3-container w3-center sectionD">
-        <div class="loader"></div>
+        <div id="loader"></div>
         <img id="qImage" style="max-width:100%;max-height: 80vh;padding: 0.5vmax"
-        ondblclick="popUp()">
+        ondblclick="popUp()" onload="loaded()">
         </div>
   </div>
 
@@ -298,6 +298,9 @@ function showInfo(boolean){
   }
 }
 
+function loaded() {
+  document.getElementById('loader').style.display = "none"
+}
 
 
 // Get the modal
@@ -507,10 +510,6 @@ function showQPage(n){
       {document.getElementById('qImageH').style.display = "none"}
     else {
       document.getElementById('qImageH').style.display = "block"
-      document.getElementById('qImage').onload = function() {
-        var l = document.getElementsByClassName('loader')
-        l[0].style.display = "none"
-      }
       document.getElementById('qImage').src = qImage[n].childNodes[0].nodeValue;
       document.getElementById('qImage2').src = qImage[n].childNodes[0].nodeValue;
     }
