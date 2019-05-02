@@ -770,4 +770,126 @@
     <ref>NA</ref>
 </question>
 
+<!--CHB in GUCH-->
+<question>
+    <index>CHB in GUCH</index>
+    <clinical>A previously healthy 28-year-old woman is evaluated for new-onset fatigue. She denies medications or any illicit drug use. On examination, her resting heart rate is 30 bpm. Findings are otherwise unremarkable. A 12-lead electrocardiogram confirms complete heart block. 
+        </clinical>
+           
+    <qImage>NA</qImage>
+    <mainQ>In considering congenital etiologies in this patient, which of the following is the most likely diagnosis associated with complete heart block?
+        </mainQ>
+    <choices>
+        <a>Double-chamber RV</a>
+        <b>Supravalvular aortic stenosis</b>
+        <c>Subvalvular aortic stenosis</c>
+        <d>Tetralogy of Fallot with minimal RV outflow tract obstruction</d>
+        <e>Physiologically corrected TGA</e>
+        </choices>
+    <answer>E</answer>
+    <exp>Physiologically corrected TGA may present in adulthood, particularly if there are not additional associated lesions. Due to an anteriorly displaced conduction system, the incidence of complete heart block approaches 2% per year in adulthood. None of the other congenital heart lesions listed is typically associated with sudden complete heart block.
+        </exp>
+    <aImage>NA</aImage>
+    <ref>NA</ref>
+</question>
+
+<!--congenital CHB-->
+<question>
+    <index>Congenital CHB</index>
+    <clinical>A 19-year-old woman with congenital complete AV block presents for a routine follow-up evaluation. She has been doing well with no symptoms. Her baseline ECG and 24-hour Holter both show complex ventricular ectopy with frequent multiform premature ventricular contractions. There is no evidence of AV conduction with an average rate of 64 bpm. Her echocardiogram shows mild ventricular dysfunction with an ejection fraction of 45%.
+        </clinical>
+           
+    <qImage>NA</qImage>
+    <mainQ>Which of the following is the most appropriate step in the care of an asymptomatic patient?
+        </mainQ>
+    <choices>
+        <a>Pacemaker implantation</a>
+        <b>Close follow-up for development of symptoms</b>
+        <c>Initiation of amiodarone therapy</c>
+        <d>electrophysiological study</d>
+        <e>Institution of ACE inhibitor</e>
+        </choices>
+    <answer>A</answer>
+    <exp>Congenital complete AV block occurs in 1 of 14,000-20,000 live births and is thought to be the result of transplacental passage of autoantibodies against Ro and La intracellular ribonuclear proteins from the mother who may have a clinical autoimmune disease such as systemic lupus erythematosus or Sjögren syndrome. These patients may be completely asymptomatic throughout childhood and adolescence and require no active cardiology intervention, but there are certain findings that require intervention regardless of symptoms. According to the ACC/AHA/HRS 2018 Guidelines, permanent pacemaker implantation is indicated for congenital third-degree AV block with a wide QRS escape rhythm, mean day-time heart rate below 50bpm, complex ventricular ectopy, or ventricular dysfunction (Class I, Level of Evidence B).
+    This is independent of the presence of symptoms because a wide complex escape rhythm may be unreliable and result in abrupt pauses that may result in cardiac arrest. Ventricular dysfunction is not common and when present is best treated with pacemaker implantation. Although ACE inhibition may be used in combination with device therapy, its use is contraindicated in a young woman of child-bearing age. There is no indication for an electrophysiology study in patients with congenital complete AV block. There is no role for amiodarone, especially because it may slow the underlying junctional escape rhythm. Pacemaker therapy might result in an improvement in her LV function.
+    </exp>
+    <aImage>NA</aImage>
+    <ref>http://www.onlinejacc.org/content/early/2018/11/08/j.jacc.2018.10.044</ref>
+</question>
+
+<!--AF with Pause-->
+<question>
+    <index>AF with Pause</index>
+    <clinical>A 72 year-old man is seen in your office to establish care as he has recently moved from out of state. His only medical problems are hypertension for 25 years for which he takes lisinopril 20 mg daily and permanent atrial fibrillation for 8 years for which he takes warfarin 5 mg daily. He takes no atrioventricular (AV) nodal blocking drugs. He has no complaints and is very active physically, playing 18 holes of golf several times a week. Your new assistant inadvertently sends an outpatient ambulatory telemetry monitor to him instead of to the 55 year-old man with intermittent syncope who was seen in the office on the same day. You are called that evening from the monitoring company, as the strip met notification criteria. The patient was asleep during the event. His average heart rate during the first 24 hours of monitoring was 83 bpm.
+        </clinical>
+           
+    <qImage>media/afPause.png</qImage>
+    <mainQ>Which of the following is the best next treatment for this patient?
+        </mainQ>
+    <choices>
+        <a>Admit to the hospital for single chamber VVIR permanent pacemaker implantation</a>
+        <b>Admit to the hospital for dual chamber DDDR permanent pacemaker implantation</b>
+        <c>Admit to the hospital for electrophysiologic study</c>
+        <d>Add theophylline 300 mg daily</d>
+        <e>Continue his current medical regimen</e>
+        </choices>
+    <answer>E</answer>
+    <exp>Brief and asymptomatic pauses in patients with atrial fibrillation do not require pacing. 
+    In 2018 guidelines, in the setting of AF with pause, pacemaker is recommended for symptomatic pause or pauses attributed to infranodal block (regular ventricular rate or wide QRS complex).
+    For asymptomatic pause, there is no specific duration that warrants pacemaker implantation.
+        </exp>
+    <aImage>NA</aImage>
+    <ref>http://www.onlinejacc.org/content/early/2018/11/08/j.jacc.2018.10.044</ref>
+</question>
+
+<!--AV block maneuver-->
+<question>
+    <index>AV block maneuver</index>
+    <clinical>A 64-year-old man is referred to the clinic for evaluation of an abnormal ECG (Figure). His past medical history is significant for hypertension, for which he is treated with lisinopril. He denies cardiac symptomatology. He is active, works full-time as a car salesman, and plays golf regularly.
+        </clinical>
+           
+    <qImage>media/mobitzII.png</qImage>
+    <mainQ>Which of the following is the next best diagnostic step for this patient?
+        </mainQ>
+    <choices>
+        <a>Echocardiogram</a>
+        <b>Blood culture</b>
+        <c>Carotid sinus massage</c>
+        <d>Pacemaker</d>
+        <e>Cardiac MRI</e>
+        </choices>
+    <answer>C</answer>
+    <exp>The ECG is consistent with sinus rhythm with 2:1 AV block. The differential is Mobitz type I second-degree AV block versus Mobitz type II second-degree AV block. Noninvasive vagal and sympathetic maneuvers can help to distinguish one from the other, since Mobitz I block is usually AV nodal, and Mobitz II block is usually in the His-Purkinje system. In a patient with AV nodal block, carotid sinus massage will slow the sinus rate and worsen AV conduction, which will worsen the AV block. The slowing of sinus rate and depression of AV conduction will have a protective effect on the distal conduction system, so conduction in the His-Purkinje may improve. Exercise (sympathetic stimulation) will improve AV nodal conduction, and worsen His-Purkinje conduction. His ECG (Figure 1) is suggestive of Mobitz I second-degree block, based on the long PR interval and narrow QRS interval.
+        </exp>
+    <aImage>NA</aImage>
+    <ref>NA</ref>
+</question>
+
+<!--Mobitz II-->
+<question>
+    <index>Mobitz II</index>
+    <clinical>A 75-year-old man with a history of hypertension and left bundle branch block, both for many years, is seen in the emergency room complaining of malaise and lightheadedness. His only medication is lisinopril 20 mg daily. On physical examination, his heart rate is 43 bpm and blood pressure is 158/92 mm Hg. His lungs are clear and cardiac examination is benign. His ECG is shown. His dobutamine echocardiogram performed 2 months ago prior to knee replacement surgery was negative for ischemia and demonstrated a normal left ventricular ejection fraction.
+        </clinical>
+           
+    <qImage>media/highGrAVB.png</qImage>
+    <mainQ>Which of the following is the most appropriate next step in his management?
+        </mainQ>
+    <choices>
+        <a>EP study to determine the level of 2:1 block.</a>
+        <b>EP study to determine if monomorphic VT is inducible.</b>
+        <c>Outpatient event monitoring.</c>
+        <d>Outpatient 48-hr holter monioring.</d>
+        <e>Implantation of dual-chamber pacemaker.</e>
+        </choices>
+    <answer>E</answer>
+    <exp>Dual-chamber permanent pacing is a Class I indication for the treatment of symptomatic heart block regardless of the site of block.  EP study may be performed in a patient with symptomatic heart block and depressed left ventricular function to determine if inducible for VT and, therefore, may warrant dual-chamber ICD, but this is not so for patients without structural heart disease. Outpatient monitor with looping recorders or Holter monitoring can be useful if a patient complains of dizziness without evidence of an arrhythmia on ECG.
+        </exp>
+    <aImage>
+        </aImage>
+    <ref></ref>
+</question>
+
+
+
+
 </qXML>

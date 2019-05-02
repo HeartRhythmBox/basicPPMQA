@@ -19,12 +19,18 @@
 .ltGrey {background-color: #c5c6c7}
 .cyan {background-color: #66FCF1}
 .blue {background-color: #45A29E}
+.orange {background-color: #f37a48}
 
 .title {width:100vw;height: 100vh;background: linear-gradient(to right,#0B0C10, #1F2833);
         transform: skewY(-15deg);transform-origin: top left}
 .titleTxt {transform: skewY(15deg);transform-origin: top left}
 .titlePad {padding: 15vh 10vw 10vh 10vw;cursor: pointer;}
 .fbPos {top: 90vh;right: 1vw;position: absolute;font-size:2vmax;line-height: 120%;text-align: right}
+#author {font-size:2.2vmax;color:#ff639c;font-family: 'Exo 2', sans-serif;}
+#title {font-size:2vmax;color:#f1f2f3;font-family: 'Average Sans', sans-serif;line-height: 100%}
+#info {top: 82vh;right:8vw;position: absolute;font-family: 'Satisfy', cursive;font-size:3vmax;color: #ff639c;
+      display:none;}
+
 .sectionH {font-family: 'Exo 2', sans-serif;color: #66fcf1;font-size:2.2vmax;
             padding:0.5vmax 1vmax;letter-spacing: -0.1vmin;}
 .sectionD {font-family: 'Average Sans', sans-serif;font-size:2vmax;letter-spacing: -0.1vmin;color:white;
@@ -93,6 +99,11 @@ box-shadow: rgba(59, 59, 59, 0.6) 2px -2px 4px;}
                    Answers</span>
                 </span>
             </div>
+            <div id="author"></div>
+            <div id="title"></div>
+        </div>
+        <div id="info"><sup>for the link to this page, visit</sup>
+          <span style="font-size:4vmax;"><sub>&#x2938;</sub></span>
         </div>
         <div class="w3-container san2 fbPos" style="color:#1f2833">
           <a href="https://www.facebook.com/HeartRhythmBox/" style="text-decoration:none" target="_blank">
@@ -246,6 +257,25 @@ window.addEventListener("keydown", function(event) {
         pSwitch=pointerSwitch(pSwitch)
         }
     })
+
+//f9    
+window.addEventListener("keydown", function(event) {
+        event.preventDefault();
+        if (event.keyCode===120) {
+            showInfo(true)
+        }
+    })
+  
+function showInfo(boolean){
+  //check if frontPage is being shown
+  var shown = document.getElementById('frontP').style.display;
+  if (boolean && shown!="none"){
+    document.getElementById('author').innerHTML = "Sirin Apiyasawat, MD"
+    document.getElementById('title').innerHTML = "Associate Professor" + '</br>' + "Electrophysiology Laboratory"
+    + '</br>'+'Ramathibodi Hospital'
+    document.getElementById('info').style.display = "block"
+  }
+}
 
 
 
