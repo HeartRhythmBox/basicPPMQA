@@ -413,7 +413,7 @@ function toggleSectionD(n){
       sectionStatus[n]=1;
       if (n==3||n==4){
         D[n].scrollIntoView({behavior: "smooth", block: "start"})
-        hCenter('aImageHolder')
+        if (screen.width>800){hCenter('aImageHolder')}
       }
     } else {
       D[n].style.display = "none";
