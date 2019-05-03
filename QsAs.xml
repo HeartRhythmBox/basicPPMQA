@@ -321,7 +321,7 @@
         <e>Pseudo Wenckebach AV block</e>
         </choices>
     <answer>E</answer>
-    <exp>URL = 125/min = 480 msec. Wenkebach 450-480 msec = 125-133/min.
+    <exp>URL = 125/min = 480 msec. TARP = (175-25)+300 = 450 msec. Wenckebach 450-480 msec = 125-133/min.
         </exp>
     <aImage>media/upperRate.jpg
         </aImage>

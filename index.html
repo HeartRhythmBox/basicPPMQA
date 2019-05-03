@@ -561,11 +561,13 @@ function showQPage(n){
     if (zoom==0){
       zoom=1;
       img.style.width = "100%";img.style.maxHeight = "fit-content";img.style.height = "auto"
-      img.scrollIntoView({behavior: "smooth", block: "start"})
+      document.getElementById('aImageHolder').style.paddingLeft = 0;
+            img.scrollIntoView({behavior: "smooth", block: "start"})
       img.ondblclick = function(){aImageZoom(zoom)}
       } else {
       zoom=0;img.ondblclick= function(){aImageZoom(zoom)}
-      img.style.maxHeight = "75vh";img.style.width = "auto"
+      img.style.maxHeight = "75vh";img.style.width = "auto";
+      if (screen.width>800){hCenter('aImageHolder')}
       document.getElementById('answer').scrollIntoView({behavior: "smooth", block: "start"})
     }
   }
