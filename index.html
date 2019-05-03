@@ -503,7 +503,8 @@ function showQPage(n){
       document.getElementById('clinicalH').style.display = "block"
     document.getElementById('clinical').innerHTML = clinical[n].childNodes[0].nodeValue}
 
-  //clear old figure
+  //clear old figure and reset loader
+  document.getElementById('loader').style.display = "block"
   var parent = document.getElementById('qImageP')
   var child = document.getElementById('qImage')
       if (typeof(child) != 'undefined' && child != null){
