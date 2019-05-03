@@ -54,7 +54,7 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);}
 #clinical {white-space:pre-line}
 #exp {white-space:pre-line}
 .navBtn {box-shadow: rgba(59, 59, 59, 0.6) 2px -2px 4px;}
-#aImage {cursor: zoom-in}
+#aImage {cursor: pointer}
 #indexList {position: fixed;max-height:50vh;max-width:50vw;display: none;
 overflow-x: hidden;overflow-y:scroll;z-index: 2;background-color:rgba(241, 241, 241,0.95);
 box-shadow: rgba(59, 59, 59, 0.6) 2px -2px 4px;}
@@ -557,14 +557,14 @@ function showQPage(n){
   //zoom
   function aImageZoom(zoom){
     var img = document.getElementById('aImage')
+    img.title = "double-click to zoom in/out"
     if (zoom==0){
       zoom=1;
       img.style.width = "100%";img.style.maxHeight = "fit-content";img.style.height = "auto"
       img.scrollIntoView({behavior: "smooth", block: "start"})
-      img.style.cursor = "zoom-out";img.onclick = function(){aImageZoom(zoom)}
+      img.ondblclick = function(){aImageZoom(zoom)}
       } else {
-      zoom=0;img.onclick = function(){aImageZoom(zoom)}
-      img.style.cursor = "zoom-in";
+      zoom=0;img.ondblclick= function(){aImageZoom(zoom)}
       img.style.maxHeight = "75vh";img.style.width = "auto"
       document.getElementById('answer').scrollIntoView({behavior: "smooth", block: "start"})
     }
