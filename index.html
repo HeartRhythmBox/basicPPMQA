@@ -76,14 +76,14 @@ box-shadow: rgba(59, 59, 59, 0.6) 2px -2px 4px;}
     }
 
 #loader {
-  margin-left: 45vw;margin-top:5vw;
-  border: 1vw solid #f3f3f3;
+  margin-left: 42vw;margin-top:5vw;
+  border: 1.5vw solid #f3f3f3;
   border-radius: 50%;
-  border-top: 1vw solid #ff639c;
-  width: 5vw;
-  height: 5vw;
-  -webkit-animation: spin 2s linear infinite; /* Safari */
-  animation: spin 2s linear infinite;
+  border-top: 1.5vw solid #ff639c;
+  width: 8vw;
+  height: 8vw;
+  -webkit-animation: spin 3s linear infinite; /* Safari */
+  animation: spin 3s linear infinite;
 }
 
 /* Safari */
@@ -522,7 +522,7 @@ function showQPage(n){
       qImg.setAttribute("id", "qImage");qImg.setAttribute("class","imageSetup")
       document.getElementById('qImageP').appendChild(qImg)
       qImg.onload = function() {
-        document.getElementById('loader').style.display = "none"
+        //document.getElementById('loader').style.display = "none"
       }
       document.getElementById('qImage2').src = qImage[n].childNodes[0].nodeValue;
     }
