@@ -39,6 +39,7 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);}
 .arrowD {display: none;cursor: pointer;}
 .arrowR {cursor: pointer;}
 .topCurve {border-top-left-radius: 1vmax;border-top-right-radius: 1vmax}
+.imageSetup {max-width:100%;max-height: 80vh;padding: 0.5vmax}
 
 @media only screen and (max-width: 600px){
   .titlePad {padding-top:30vh}
@@ -47,6 +48,7 @@ line-height: 130%;background-color: rgba(256, 256, 256,0.8);}
 }
 @media only screen and (max-width: 800px){
   .fbPos {top:95vh;right:2vw}
+  .imageSetup {width:100%;max-height:auto;}
 }
 
 #clinical {white-space:pre-line}
@@ -74,11 +76,12 @@ box-shadow: rgba(59, 59, 59, 0.6) 2px -2px 4px;}
     }
 
 #loader {
-  border: 16px solid #f3f3f3;
+  margin-left: 45vw;margin-top:5vw;
+  border: 1vw solid #f3f3f3;
   border-radius: 50%;
-  border-top: 16px solid #ff639c;
-  width: 120px;
-  height: 120px;
+  border-top: 1vw solid #ff639c;
+  width: 5vw;
+  height: 5vw;
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
 }
@@ -159,10 +162,9 @@ box-shadow: rgba(59, 59, 59, 0.6) 2px -2px 4px;}
   <div id="qImageH" class="w3-row sectionH">
       <span class="arrowR">&nbsp;&#9656;</span><span class="arrowD">&nbsp;&#9662;</span>
       Figure
-      <div class="w3-container w3-center sectionD">
+      <div id="qImageP" class="w3-container w3-center sectionD" ondblclick="popUp()">
         <div id="loader"></div>
-        <img id="qImage" style="max-width:100%;max-height: 80vh;padding: 0.5vmax"
-        ondblclick="popUp()">
+        <!--img id="qImage" style="max-width:100%;max-height: 80vh;padding: 0.5vmax"-->
       </div>
   </div>
 
@@ -339,7 +341,7 @@ function cleanList(){
     var old = list.getElementsByTagName('li').length
     if (old!=0){
       list.innerHTML = ""}
-    document.getElementById('qImage').style.visibility = "hidden"
+      
 }
 
 
@@ -404,6 +406,7 @@ function qNav(x){
     nextQ=0;
   }
   qNo = nextQ
+
   showQPage(nextQ);cleanList();
 }
 
@@ -500,16 +503,24 @@ function showQPage(n){
       document.getElementById('clinicalH').style.display = "block"
     document.getElementById('clinical').innerHTML = clinical[n].childNodes[0].nodeValue}
 
+  //clear old figure
+  var parent = document.getElementById('qImageP')
+  var child = document.getElementById('qImage')
+      if (typeof(child) != 'undefined' && child != null){
+      parent.removeChild(child)}
 
   //check if there is an image
     if (qImage[n].childNodes[0].nodeValue=="NA")
       {document.getElementById('qImageH').style.display = "none"}
     else {
       document.getElementById('qImageH').style.display = "block"
-      var qImg = document.getElementById('qImage')
-      qImg.src = qImage[n].childNodes[0].nodeValue;
+      
+      //create element
+      var qImg = document.createElement('img')
+      qImg.setAttribute("src",qImage[n].childNodes[0].nodeValue)
+      qImg.setAttribute("id", "qImage");qImg.setAttribute("class","imageSetup")
+      document.getElementById('qImageP').appendChild(qImg)
       qImg.onload = function() {
-        qImg.style.visibility = "visible"
         document.getElementById('loader').style.display = "none"
       }
       document.getElementById('qImage2').src = qImage[n].childNodes[0].nodeValue;
